@@ -1,0 +1,3763 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+    <!-- title -->
+
+
+
+
+<!-- keywords -->
+
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" >
+    <meta name="author" content="F_JustWei">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="F_JustWei">
+    
+    <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
+    
+    <meta name="description" content="">
+    <meta name="description" content="知识产权保护1 保护期限 2 知识产权人确定  3 侵权判定 中国公民、法人或者其他组织的作品，不论是否发表，都享有著作权。  开发软件所用的思想、处理过程、操作方法或者数学概念不受保护。 著作权法不适用于下列情形：  法律、法规，国家机关的决议、决定、命令和其他具有立法、行政、司法性质的文件，及其官方正式译文。  时事新闻。  历法、通用数表、通用表格和公式。    例题2009年上半年软件设计">
+<meta property="og:type" content="article">
+<meta property="og:title" content="知识产权保护">
+<meta property="og:url" content="http://139.196.79.90/2021/04/18/%E7%9F%A5%E8%AF%86%E4%BA%A7%E6%9D%83%E4%BF%9D%E6%8A%A4/index.html">
+<meta property="og:site_name" content="Promende">
+<meta property="og:description" content="知识产权保护1 保护期限 2 知识产权人确定  3 侵权判定 中国公民、法人或者其他组织的作品，不论是否发表，都享有著作权。  开发软件所用的思想、处理过程、操作方法或者数学概念不受保护。 著作权法不适用于下列情形：  法律、法规，国家机关的决议、决定、命令和其他具有立法、行政、司法性质的文件，及其官方正式译文。  时事新闻。  历法、通用数表、通用表格和公式。    例题2009年上半年软件设计">
+<meta property="og:locale">
+<meta property="og:image" content="c:/Users/冯佳威/AppData/Roaming/Typora/typora-user-images/image-20210318185321842.png">
+<meta property="og:image" content="c:/Users/冯佳威/AppData/Roaming/Typora/typora-user-images/image-20210318185816279.png">
+<meta property="og:image" content="c:/Users/冯佳威/AppData/Roaming/Typora/typora-user-images/image-20210318190117410.png">
+<meta property="og:image" content="c:/Users/冯佳威/AppData/Roaming/Typora/typora-user-images/image-20210318190845187.png">
+<meta property="article:published_time" content="2021-04-17T16:05:15.000Z">
+<meta property="article:modified_time" content="2021-04-21T16:11:53.065Z">
+<meta property="article:author" content="F_JustWei">
+<meta property="article:tag" content="软考">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:/Users/冯佳威/AppData/Roaming/Typora/typora-user-images/image-20210318185321842.png">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    
+    <title>知识产权保护 · F_JustWei&#39;s Studio</title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+</style>
+
+    <link rel="preload" href= "/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="stylesheet" href= "/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+(function( w ){
+	"use strict";
+	// rel=preload support test
+	if( !w.loadCSS ){
+		w.loadCSS = function(){};
+	}
+	// define on the loadCSS obj
+	var rp = loadCSS.relpreload = {};
+	// rel=preload feature support test
+	// runs once and returns a function for compat purposes
+	rp.support = (function(){
+		var ret;
+		try {
+			ret = w.document.createElement( "link" ).relList.supports( "preload" );
+		} catch (e) {
+			ret = false;
+		}
+		return function(){
+			return ret;
+		};
+	})();
+
+	// if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+	// then change that media back to its intended value on load
+	rp.bindMediaToggle = function( link ){
+		// remember existing media attr for ultimate state, or default to 'all'
+		var finalMedia = link.media || "all";
+
+		function enableStylesheet(){
+			link.media = finalMedia;
+		}
+
+		// bind load handlers to enable media
+		if( link.addEventListener ){
+			link.addEventListener( "load", enableStylesheet );
+		} else if( link.attachEvent ){
+			link.attachEvent( "onload", enableStylesheet );
+		}
+
+		// Set rel and non-applicable media type to start an async request
+		// note: timeout allows this to happen async to let rendering continue in IE
+		setTimeout(function(){
+			link.rel = "stylesheet";
+			link.media = "only x";
+		});
+		// also enable media after 3 seconds,
+		// which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+		setTimeout( enableStylesheet, 3000 );
+	};
+
+	// loop through link elements in DOM
+	rp.poly = function(){
+		// double check this to prevent external calls from running
+		if( rp.support() ){
+			return;
+		}
+		var links = w.document.getElementsByTagName( "link" );
+		for( var i = 0; i < links.length; i++ ){
+			var link = links[ i ];
+			// qualify links to those with rel=preload and as=style attrs
+			if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+				// prevent rerunning on link
+				link.setAttribute( "data-loadcss", true );
+				// bind listeners to toggle media back
+				rp.bindMediaToggle( link );
+			}
+		}
+	};
+
+	// if unsupported, run the polyfill
+	if( !rp.support() ){
+		// run once at least
+		rp.poly();
+
+		// rerun poly on an interval until onload
+		var run = w.setInterval( rp.poly, 500 );
+		if( w.addEventListener ){
+			w.addEventListener( "load", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		} else if( w.attachEvent ){
+			w.attachEvent( "onload", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		}
+	}
+
+
+	// commonjs
+	if( typeof exports !== "undefined" ){
+		exports.loadCSS = loadCSS;
+	}
+	else {
+		w.loadCSS = loadCSS;
+	}
+}( typeof global !== "undefined" ? global : this ) );
+</script>
+
+    <link rel="icon" href= "/assets/favicon.ico" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script" />
+    <link rel="preload" href="/scripts/main.js" as="script" />
+    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
+    
+    <!-- fancybox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >F_JustWei&#39;s Studio.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">知识产权保护</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href=/>F_JustWei's Studio.</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro" style="
+
+
+
+
+
+
+
+height:50vh;
+">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            知识产权保护
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "软考">软考</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">5.9k</span>阅读时长: <span class="post-count reading-time">20 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2021/04/18</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+        <script>
+ 
+  // get user agent
+  var browser = {
+    versions: function () {
+      var u = window.navigator.userAgent;
+      return {
+        userAgent: u,
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+        iPad: u.indexOf('iPad') > -1, //是否为iPad
+        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+      };
+    }()
+  }
+  console.log("userAgent:" + browser.versions.userAgent);
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded');
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in');
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb(){
+    if (browser.versions.uc) {
+      console.log("UCBrowser");
+      fontLoaded();
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular']
+        },
+        loading: function () {  //所有字体开始加载
+          // console.log('loading');
+        },
+        active: function () {  //所有字体已渲染
+          fontLoaded();
+        },
+        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout');
+          fontLoaded();
+        },
+        timeout: 5000 // Set the timeout to two seconds
+      });
+    }
+  }
+
+  function asyncErr(){
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
+    if (err) { o.addEventListener('error', function (e) { err(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  var asyncLoadWithFallBack = function(arr, success, reject) {
+      var currReject = function(){
+        reject()
+        arr.shift()
+        if(arr.length)
+          async(arr[0], success, currReject)
+        }
+
+      async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack([
+    "https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", 
+    "https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js",
+    "/lib/webfontloader.min.js"
+  ], asyncCb, asyncErr)
+</script>        
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <h1 id="知识产权保护"><a href="#知识产权保护" class="headerlink" title="知识产权保护"></a><center>知识产权保护</center></h1><h3 id="1-保护期限"><a href="#1-保护期限" class="headerlink" title="1 保护期限"></a>1 保护期限</h3><p><img src="C:\Users\冯佳威\AppData\Roaming\Typora\typora-user-images\image-20210318185321842.png" alt="image-20210318185321842"></p>
+<h3 id="2-知识产权人确定"><a href="#2-知识产权人确定" class="headerlink" title="2 知识产权人确定"></a>2 知识产权人确定</h3><p><img src="C:\Users\冯佳威\AppData\Roaming\Typora\typora-user-images\image-20210318185816279.png" alt="image-20210318185816279"></p>
+<p><img src="C:\Users\冯佳威\AppData\Roaming\Typora\typora-user-images\image-20210318190117410.png" alt="image-20210318190117410"></p>
+<h3 id="3-侵权判定"><a href="#3-侵权判定" class="headerlink" title="3 侵权判定"></a>3 侵权判定</h3><ul>
+<li><p>中国公民、法人或者其他组织的作品，不论是否发表，都享有著作权。</p>
+</li>
+<li><p>开发软件所用的思想、处理过程、操作方法或者数学概念不受保护。</p>
+<p>著作权法不适用于下列情形：</p>
+</li>
+<li><p>法律、法规，国家机关的决议、决定、命令和其他具有立法、行政、司法性质的文件，及其官方正式译文。</p>
+</li>
+<li><p>时事新闻。</p>
+</li>
+<li><p>历法、通用数表、通用表格和公式。</p>
+</li>
+</ul>
+<p><img src="C:\Users\冯佳威\AppData\Roaming\Typora\typora-user-images\image-20210318190845187.png" alt="image-20210318190845187"></p>
+<h3 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h3><h3 id="2009年上半年软件设计师上午题"><a href="#2009年上半年软件设计师上午题" class="headerlink" title="2009年上半年软件设计师上午题"></a>2009年上半年软件设计师上午题</h3><p>关于软件著作权产生的时间，下面表述正确的是（10）。</p>
+<p>A.自作品首次公开发表时</p>
+<p>B.自作者有创作意图时</p>
+<p>C.自作品得到国家著作权行政管理部门认可时</p>
+<p>==D.自作品完成创作之日==</p>
+<p>程序员甲与同事乙在乙家探讨甲近期编写的程序，甲表示对该程序极不满意，说要弃之重写，并将程序手稿扔到乙家垃圾筒。后来乙将甲这一程序稍加修改，并署乙名发表。以下说法正确的是（11）。</p>
+<p>==A.乙的行为侵犯了甲的软件著作权==</p>
+<p>B.乙的行为没有侵犯甲的软件著作权，因为甲已将程序手稿丢弃</p>
+<p>C.乙的行为没有侵犯甲的著作权，因为乙已将程序修改</p>
+<p>D.甲没有发表该程序并弃之，而乙将程序修改后发表，故乙应享有著作权</p>
+<h3 id="2009年下半年软件设计师上午题"><a href="#2009年下半年软件设计师上午题" class="headerlink" title="2009年下半年软件设计师上午题"></a>2009年下半年软件设计师上午题</h3><p>下列智力成果中，能取得专利权的是（10）。</p>
+<p>A.计算机程序代码         B.游戏的规则和方法</p>
+<p>C.计算机算法           ==D.用于控制测试过程的程序==</p>
+<p>软件权利人与被许可方签订一份软件使用许可合同。若在该合同约定的时间和地域范围内，软件权利人不得再许可任何第三人以此相同的方法使用该项软件，但软件权利人可以自己使用，则该项许可使用是（11)。</p>
+<p>==A.独家许可使用==  B.独占许可使用 </p>
+<p>C.普通许可使用  D.部分许可使用</p>
+<p> 解析：独家许可权利人自己可以使用，而独占许可权利人自己也不能使用</p>
+<h3 id="2010年上半年软件设计师上午题"><a href="#2010年上半年软件设计师上午题" class="headerlink" title="2010年上半年软件设计师上午题"></a>2010年上半年软件设计师上午题</h3><p>两个以上的申请人分别就相同内容的计算机程序的发明创造，先后向国务院专利行政部门提出申请，（10）可以获得专利申请权。 </p>
+<p>A.所有申请人均   ==B.先申请人==   C.先使用人   D.先发明人</p>
+<p>王某是一名程序员，每当软件开发完成后均按公司规定完成软件文档，并上交公司存档，自己没有留存。因撰写论文的需要，王某向公司要求将软件文档原本借出复印，但遭到公司拒绝，理由是该软件文档属于职务作品，著作权归公司。以下叙述中，正确的是（11）。</p>
+<p>==A.该软件文档属于职务作品，著作权归公司==</p>
+<p>B.该软件文档不属于职务作品，程序员享有著作权</p>
+<p>C.该软件文档属于职务作品，但程序员享有复制权</p>
+<p>D.该软件文档不属于职务作品，著作权由公司和程序员共同享有</p>
+<h3 id="2010年下半年软件设计师上午题"><a href="#2010年下半年软件设计师上午题" class="headerlink" title="2010年下半年软件设计师上午题"></a>2010年下半年软件设计师上午题</h3><p>软件商标权的权利人是指（10）。</p>
+<p>A.软件商标设计人           B.软件商标制作人  </p>
+<p>C.软件商标使用人           ==D.软件注册商标所有人==</p>
+<p>利用（11）可以对软件的技术信息、经营信息提供保护。</p>
+<p>A.著作权     B.专利权       ==C.商业秘密权==     D.商标权 　　</p>
+<p>李某在某软件公司兼职，为完成该公司交给的工作，做出了一项涉及计算机程序的发明。李某认为该发明是自己利用业余时间完成的，可以个人名义申请专利。关于此项发明的专利申请权应归属（12）。</p>
+<p>A.李某                B.李某所在单位   </p>
+<p>==C.李某兼职的软件公司==         D.李某和软件公司约定的一方</p>
+<h3 id="2011年上半年软件设计师上午题"><a href="#2011年上半年软件设计师上午题" class="headerlink" title="2011年上半年软件设计师上午题"></a>2011年上半年软件设计师上午题</h3><p>下列关于软件著作权中翻译权的叙述正确的是：翻译权是指（10）的权利。</p>
+<p>A.将原软件从一种自然语言文字转换成另一种自然语言文字</p>
+<p>==B.将原软件从一种程序设计语言转换成另一种程序设计语言==</p>
+<p>C.软件著作权人对其软件享有的以其它各种语言文字形式再表现</p>
+<p>D.对软件的操作界面或者程序中涉及的语言文字翻译成另一种语言文字</p>
+<p>某软件公司研发的财务软件产品在行业中技术领先，具有很强的市场竞争优势。为确保其软件产品的技术领先及市场竞争优势，公司采取相应的保密措施，以防止软件技术秘密的外泄。并且，还为该软件产品冠以“用友”商标，但未进行商标注册。此情况下，公司仅享有该软件产品的（11）。</p>
+<p>A.软件著作权和专利权          B.商业秘密权和专利权</p>
+<p>==C.软件著作权和商业秘密权==    D.软件著作权和商标权</p>
+<h3 id="2011年下半年软件设计师上午题"><a href="#2011年下半年软件设计师上午题" class="headerlink" title="2011年下半年软件设计师上午题"></a>2011年下半年软件设计师上午题</h3><p>(10)指可以不经著作权人许可，不需支付报酬，使用其作品。</p>
+<p>==A.合理使用==   B.许可使用   C.强制许可使用 D.法定许可使用</p>
+<p>王某是M国际运输有限公司计算机系统管理员。任职期间，王某根据公司的业务要求开发了“海运出口业务系统”，并由公司使用，随后，王某向国家版权局申请了计算机软件著作权登记，并取得了《计算机软件著作权登记证书》。证书明确软件名称是“海运出口业务系统V1.0”，著作权人为王某。以下说法中，正确的是（11）。</p>
+<p>A.海运出口业务系统V1.0的著作权属于王某</p>
+<p>==B.海运出口业务系统V1.0的著作权属于M公司==</p>
+<p>C.海运出口业务系统V1.0的著作权属于王某和M公司 </p>
+<p>D.王某获取的软件著作权登记证是不可以撤销的</p>
+<h3 id="2012年上半年软件设计师上午题"><a href="#2012年上半年软件设计师上午题" class="headerlink" title="2012年上半年软件设计师上午题"></a>2012年上半年软件设计师上午题</h3><p>软件著作权的客体不包括（10）。</p>
+<p>A.源程序    B.目标程序   C.软件文档   ==D.软件开发思想==</p>
+<p>中国企业M与美国公司L进行技术合作，合同约定M使用一项在有效期内的美国专利，但该项美国专利未在中国和其他国家提出申请。对于M销售依照该专利生产的产品，以下叙述正确的是（11）</p>
+<p>A.在中国销售，M需要向L支付专利许可使用费</p>
+<p>B.返销美国，M不需要向L支付专利许可使用费</p>
+<p>C.在其他国家销售，M需要向L支付专利许可使用费</p>
+<p>==D.在中国销售，M不需要向L支付专利许可使用费==</p>
+<h3 id="2012年下半年软件设计师上午题"><a href="#2012年下半年软件设计师上午题" class="headerlink" title="2012年下半年软件设计师上午题"></a>2012年下半年软件设计师上午题</h3><p>M软件公司的软件产品注册商标为M，为确保公司在市场竞争中占据优势，对员工进行了保密约束。此情形下该公司不享有（10）。</p>
+<p>A.商业秘密权    B.著作权      ==C.专利权==    D.商标权</p>
+<p>X软件公司的软件工程师张某兼职于Y科技公司，为完成Y科技公司交给的工作，做出了一项涉及计算机程序的发明。张某认为该发明是利用自己的业余时间完成的，可以以个人名义申请专利。此项专利申请权应归属（11）。</p>
+<p>A.张某     B.X软件公司   ==C.Y科技公司==   D.张某和Y科技公司 </p>
+<h3 id="2013年上半年软件设计师上午题"><a href="#2013年上半年软件设计师上午题" class="headerlink" title="2013年上半年软件设计师上午题"></a>2013年上半年软件设计师上午题</h3><p>王某是一名软件设计师，按公司规定编写软件文档，并上交公司存档。这些软件文档属于职务作品，且（10）。</p>
+<p>==A.其著作权由公司享有==</p>
+<p>B.其著作权由软件设计师享有</p>
+<p>C.除其署名权以处，著作权的其他权利由软件设计师享有</p>
+<p>D.其著作权由公司和软件设计师共同享有</p>
+<p>甲经销商擅自复制并销售乙公司开发的OA软件光盘已构成侵权。丙企业在未知的情形下从甲经销商处购入10张并已安装使用。在丙企业知道了所使用的软件为侵权复制的情形下，以下说法正确的是（11)。</p>
+<p>A.丙企业的使用行为侵权，须承担赔偿责任</p>
+<p>B.丙企业的使用行为不侵权，可以继续使用这10张软件光盘</p>
+<p>==C.丙企业的使用行为侵权，支付合理费用后可以继续使用这10张软件光盘==</p>
+<p>D.丙企业的使用行为不侵权，不需承担任何法律责任</p>
+<h3 id="2013年下半年软件设计师上午题"><a href="#2013年下半年软件设计师上午题" class="headerlink" title="2013年下半年软件设计师上午题"></a>2013年下半年软件设计师上午题</h3><p>为说明某一问题，在学术论文中需要引用某些资料。以下叙述中，（13）是不正确的。</p>
+<p>==A.既可引用发表的作品，也可引用未发表的作品==</p>
+<p>B.只能限于介绍、评论作品</p>
+<p>C.只要不构成自己作品的主要部分，可适当引用资料</p>
+<p>D.不必征得原作者的同意，不需要向他支付报酬</p>
+<p>以下作品中，不适用或不受著作权法保护的是（14）。</p>
+<p>A.某教师在课堂上的讲课         </p>
+<p>B.某作家的作品《红河谷》</p>
+<p>C.最高人民法院组织编写的《行政诉讼案例选编》  </p>
+<p>==D.国务院颁布的《计算机软件保护条例》==</p>
+<h3 id="2014年上半年软件设计师上午题"><a href="#2014年上半年软件设计师上午题" class="headerlink" title="2014年上半年软件设计师上午题"></a>2014年上半年软件设计师上午题</h3><p>王某买了一幅美术作品原件，则他享有该美术作品的（10）。</p>
+<p>A.著作权     B.所有权    C.展览权    ==D.所有权与其展览权==</p>
+<p>甲、乙两软件公司于2012年7月12日就其财务软件产品分别申请“用友”和“用有”商标注册。两财务软件相似，甲第一次使用时间为2009年7月，乙第一次使用时间为2009年5月。此情形下，（11）能获准注册。</p>
+<p>A.“用友”        B.“用友”与“用有”都 </p>
+<p>==C.“用有”==        D.由甲、乙抽签结果确定谁</p>
+<h3 id="2014年下半年软件设计师上午题"><a href="#2014年下半年软件设计师上午题" class="headerlink" title="2014年下半年软件设计师上午题"></a>2014年下半年软件设计师上午题</h3><p>甲公司接受乙公司委托开发了一项应用软件，双方没有订立任何书面合同。在此情形下（10）享有该软件的著作权。</p>
+<p>==A.甲公司==    B.甲、乙公司共同    C.乙公司    D.甲、乙公司均不</p>
+<p>甲、乙软件公司于2013年9月12日就其财务软件产品分别申请“大堂”和“大唐”商标注册。两财务软件相似，且经协商双方均不同意放弃使用其申请注册的商标标识。此情形下，（11）获准注册。</p>
+<p>A.“大堂”         B.“大堂”与“大唐”都能    </p>
+<p>C.“大唐”         ==D.由甲、乙抽签结果确定谁能==</p>
+<h3 id="2015年上半年软件设计师上午题"><a href="#2015年上半年软件设计师上午题" class="headerlink" title="2015年上半年软件设计师上午题"></a>2015年上半年软件设计师上午题</h3><p>王某是某公司的软件设计师，每当软件开发完成后均按公司规定编写软件文档，并提交公司存档。那么该软件文档的著作权（10）享有。</p>
+<p>==A.应由公司==                  B.应由公司和王某共同</p>
+<p>C.应由王某                  D.除署名权以外，著作权的其他权利由王某</p>
+<p>甲、乙两公司的软件设计师分别完成了相同的计算机程序发明，甲公司先于乙公司完成，乙公司先于甲公司使用。甲、乙公司于同一天向专利局申请发明专利。此情形下，（11）可获得专利权。</p>
+<p>A.甲公司      B.甲、乙公司均   C.乙公司     ==D.由甲、乙公司协商确定谁==</p>
+<h3 id="2015年下半年软件设计师上午题"><a href="#2015年下半年软件设计师上午题" class="headerlink" title="2015年下半年软件设计师上午题"></a>2015年下半年软件设计师上午题</h3><p>以下著作权权利中，（10）的保护期受时间限制。</p>
+<p>A.署名权           B.修改权          ==C.发表权==          D.保护作品完整权</p>
+<p>王某在其公司独立承担了某综合信息管理系统软件的程序设计工作。该系统交付用户、投入试运行后，王某辞职，并带走了该综合信息管理系统的源程序，拒不交还公司。王某认为，综合信息管理系统源程序是他独立完成的：他是综合信息管理系统源程序的软件著作权人。王某的行为（11）。</p>
+<p>==A.侵犯了公司的软件著作权==           B.未侵犯公司的软件著作权</p>
+<p> C.侵犯了公司的商业秘密权            D.不涉及侵犯公司的软件著作权</p>
+<h3 id="2016年上半年软件设计师上午题"><a href="#2016年上半年软件设计师上午题" class="headerlink" title="2016年上半年软件设计师上午题"></a>2016年上半年软件设计师上午题</h3><p>某软件公司参与开发管理系统软件的程序员张某，辞职到另一公司任职，于是该项目负责人将该管理系统软件上开发者的署名更改为李某（接张某工作）。该项目负责人的行为（10）。</p>
+<p>==A.侵犯了张某开发者身份权（署名权）==</p>
+<p>B.不构成侵权，因为程序员张某不是软件著作权人</p>
+<p>C.只是行使管理者的权利，不构成侵权</p>
+<p>D.不构成侵权，因为程序员张某现已不是项目组成员</p>
+<p>美国某公司与中国某企业谈技术合作，合同约定使用1项美国专利（获得批准并在有效期内），该项技术未在中国和其他国家申请专利。依照该专利生产的产品（11）需要向美国公司支付这件美国专利的许可使用费。</p>
+<p>A.在中国销售，中国企业                  B.如果返销美国，中国企业不</p>
+<p>C.在其他国家销售，中国企业              ==D.在中国销售，中国企业不==</p>
+<h3 id="2016年下半年软件设计师上午题"><a href="#2016年下半年软件设计师上午题" class="headerlink" title="2016年下半年软件设计师上午题"></a>2016年下半年软件设计师上午题</h3><p>（10）的保护期限是可以延长的。</p>
+<p>A.专利权           ==B.商标权==          C.著作权               D.商业秘密权</p>
+<p>甲公司软件设计师完成了一项涉及计算机程序的发明。之后，乙公司软件设计师也完成了与甲公司软件设计师相同的涉及计算机程序的发明。甲、乙公司于同一天向专利局申请发明专利。此情形下，（11）是专利权申请人。</p>
+<p>A.甲公司      B.甲、乙两公司        </p>
+<p>C.乙公司     ==D.由甲、乙公司协商确定的公司==</p>
+<p>甲、乙两厂生产的产品类似，且产品都使用“B”商标。两厂于同一天向商标局申请商标注册，且申请注册前两厂均未使用“B”商标。此情形下，（12）能核准注册。</p>
+<p>A.甲厂    ==B.由甲、乙厂抽签确定的厂==     C.乙厂        D.甲、乙两厂</p>
+<h3 id="2017年上半年软件设计师上午题"><a href="#2017年上半年软件设计师上午题" class="headerlink" title="2017年上半年软件设计师上午题"></a>2017年上半年软件设计师上午题</h3><p>甲软件公司受乙企业委托安排公司软件设计师开发了信息系统管理软件，由于在委托开发合同中未对软件著作权归属作出明确的约定，所以该信息系统管理软件的著作权由（10）享有。</p>
+<p>==A.甲==      B.乙      C.甲与乙共同      D.软件设计师</p>
+<p>根据我国商标法，下列商品中必须使用注册商标的是（11）。</p>
+<p>A.医疗仪器   B.墙壁涂料     </p>
+<p>C.无糖食品     ==D.烟草制品==</p>
+<p>甲、乙两人在同一天就同样的发明创造提交了专利申请，专利局将分别向各申请人通报有关情况，并提出多种可能采用的解决办法。下列说法中，不可能采用（12）。</p>
+<p>A.甲、乙作为共同申请人    B.甲或乙一方放弃权利并从另一方得到适当的补偿</p>
+<p>C.甲、乙都不授予专利权    ==D.甲、乙都授予专利权==</p>
+<p> 解析：两个以上的申请人分别就同样的发明创造申请专利的，专利权授予最先申请的人。如果两人同时在同一时间就同样的发明创造提交申请专利，则可采取两申请人作为一件申请的共同申请人等办法。但是，不能两件申请都授予专利权。</p>
+<h3 id="2017年下半年软件设计师上午题"><a href="#2017年下半年软件设计师上午题" class="headerlink" title="2017年下半年软件设计师上午题"></a>2017年下半年软件设计师上午题</h3><p>某软件公司项目组的程序员在程序编写完成后均按公司规定撰写文档，并上交公司存档。此情形下，该软件文档著作权应由（12）享有。</p>
+<p>A.程序员                B.公司与项目组共同</p>
+<p>==C.公司==                D.项目组全体人员</p>
+<p>我国商标法规定了申请注册的商标不得使用的文字和图形，其中包括县级以上行政区的地名（文字）。以下商标注册申请，经审查，能获准注册的商标是（13）。</p>
+<p>A.青岛(市)   ==B.黄山(市)==    C.海口(市)    D.长沙(市)</p>
+<p>李某购买了一张有注册商标的应用软件光盘，则李某享有（14）。</p>
+<p>A.注册商标专用权            ==B.该光盘的所有权==</p>
+<p>C.该软件的著作权            D.该软件的所有权</p>
+<h3 id="2018年上半年软件设计师上午题"><a href="#2018年上半年软件设计师上午题" class="headerlink" title="2018年上半年软件设计师上午题"></a>2018年上半年软件设计师上午题</h3><p>以下关于计算机软件著作权的叙述中，正确的是（12）。</p>
+<p>==A.非法进行拷贝，发布或更改软件的人被称为软件盗版者==</p>
+<p>B.《计算机软件保护条例》是国家知识产权局颁布的，用来保护软件著作权人的权益</p>
+<p>C. 软件著作权属于软件开发者，软件著作权自软件开发完成之日起产生</p>
+<p>D. 用户购买了具有版权的软件，则具有对该软件的使用权和复制权</p>
+<p>王某是某公司的软件设计师，完成某项软件开发后按公司规定进行软件归档。以下有关该软件的著作权的叙述中，正确的是（13）。</p>
+<p>A.著作权应由公司和王某共同享有    </p>
+<p>==B.著作权应由公司享有==</p>
+<p>C.著作权应由王某享有     </p>
+<p>D.除了署名权以外，著作权的其它权利由王某享有</p>
+<p>著作权中，（14）的保护期不受限制。</p>
+<p>A.发表权   B.发行权      ==C.署名权==    D.展览权</p>
+<h3 id="2018年下半年软件设计师上午题"><a href="#2018年下半年软件设计师上午题" class="headerlink" title="2018年下半年软件设计师上午题"></a>2018年下半年软件设计师上午题</h3><p> 有可能无限期拥有的知识产权是（12）。</p>
+<p>A.著作权  B.专利权  ==C.商标权==  D.集成电路布图设计权</p>
+<p>（13）是构成我国保护计算机软件著作权的两个基本法律文件。</p>
+<p>A.《软件法》和《计算机软件保护条例》</p>
+<p>==B.《中华人民共和国著作权法》和《计算机软件保护条例》==</p>
+<p>C.《软件法》和《中华人民共和国著作权法》</p>
+<p>D.《中华人民共和国版权法》和《计算机软件保护条例》</p>
+<p>某软件程序员接受一个公司（软件著作权人）委托开发完成一个软件，三个月后又接受另一公司委托开发功能类似的软件，此程序员仅将受第一个公司委托开发的软件略作修改即提交给第二家公司，此种行为（14）。</p>
+<p>A.属于开发者的特权   B.属于正常使用著作权  C.不构成侵权   ==D.构成侵权==</p>
+<h3 id="2019年上半年软件设计师上午题"><a href="#2019年上半年软件设计师上午题" class="headerlink" title="2019年上半年软件设计师上午题"></a>2019年上半年软件设计师上午题</h3><p>刘某完全利用任职单位的实验材料、实验室和不对外公开的技术资料完成了一项 发明。以下关于该发明的权利归属的叙述中，正确的是（12）。</p>
+<p>A.无论刘某与单位有无特别约定，该项成果都属于单位</p>
+<p>==B.原则上应归单位所有，但若单位与刘某对成果的归属有特别约定时遵从约定==</p>
+<p>C.取决于该发明是否是单位分派给刘某的</p>
+<p>D.无论刘某与单位有无特别约定，该项成果都属于刘某</p>
+<p>甲公司购买了一工具软件，并使用该工具软件开发了新的名为”恒友”的软件。甲公司在销售新软件的同时，向客户提供工具软件的复制品，则该行为（13）。甲公司未对”恒友”软件注册商标就开始推向市场，并获得用户的好评。三个月后，乙公司也推出名为”恒友”的类似软件，并对之进行了商标注册，则其行为（14）。</p>
+<p>（13）==A.侵犯了著作权==  B.不构成侵权行为  C.侵犯了专利权  D.属于不正当竞争</p>
+<p>（14）==A.侵犯了著作权==  B.不构成侵权行为  C.侵犯了商标权  D.属于不正当竞争</p>
+<h3 id="2019年下半年软件设计师上午题"><a href="#2019年下半年软件设计师上午题" class="headerlink" title="2019年下半年软件设计师上午题"></a>2019年下半年软件设计师上午题</h3><p>李某受非任职单位委托，利用该单位实验室实验材料和技术资料开发了一项软件产品，对该软件的权利归属，表达正确的是（10）。</p>
+<p>A、该软件属于委托单位</p>
+<p>==B、若该单位与李某对软件的归属有特别的约定，则遵从约定；无约定的原则上归属于李某==</p>
+<p>C、取决于该软件是否属于单位分派给李某的</p>
+<p>D、无论李某与该单位有无特别约定，该软件属于李某</p>
+<p>李工是某软件公司的软件设计师，每当软件开发完成均按公司规定申请软件著作权，该软件的著作权（11）。</p>
+<p>A、应由李工享有       B、应由公司和李工共同享有</p>
+<p>==C、应由公司享有==       D、除署名权以外，著作权的其他权利由李工享有</p>
+<h3 id="2020年下半年软件设计师上午题"><a href="#2020年下半年软件设计师上午题" class="headerlink" title="2020年下半年软件设计师上午题"></a>2020年下半年软件设计师上午题</h3><p>甲、乙两个申请人分别就相同内容的计算机软件发明创造，向国务院专利行政部门提出专利申请，甲先于乙一日提出，则（12）。</p>
+<p>==A.甲获得该项专利申请权==                B.乙获得该项专利申请权</p>
+<p>C.甲和乙都获得该项专利申请权    D.甲和乙都不能获得该项专利申请权</p>
+<p>小王是某高校的非全日制在读研究生，目前在甲公司实习，负责该公司某软件项目的开发工作并撰写相关的软件文档。以下叙述中，正确的是（13）。</p>
+<p>A.该软件文档属于职务作品，但小王享有该软件著作权的全部权利</p>
+<p>==B.该软件文档属于职务作品，甲公司享有该软件著作权的全部权利==</p>
+<p>C.该软件文档不属于职务作品，小王享有该软件著作权的全部权利</p>
+<p>D.该软件文档不属于职务作品，甲公司和小王共同享有该著作权的全部权利</p>
+
+    </article>
+    <!-- license  -->
+    
+        <div class="license-wrapper">
+            <p>原文作者：<a href="http://139.196.79.90">F_JustWei</a>
+            <p>原文链接：<a href="http://139.196.79.90/2021/04/18/%E7%9F%A5%E8%AF%86%E4%BA%A7%E6%9D%83%E4%BF%9D%E6%8A%A4/">http://139.196.79.90/2021/04/18/%E7%9F%A5%E8%AF%86%E4%BA%A7%E6%9D%83%E4%BF%9D%E6%8A%A4/</a>
+            <p>发表日期：<a href="http://139.196.79.90/2021/04/18/%E7%9F%A5%E8%AF%86%E4%BA%A7%E6%9D%83%E4%BF%9D%E6%8A%A4/">April 18th 2021, 12:05:15 am</a>
+            <p>更新日期：<a href="http://139.196.79.90/2021/04/18/%E7%9F%A5%E8%AF%86%E4%BA%A7%E6%9D%83%E4%BF%9D%E6%8A%A4/">April 22nd 2021, 12:11:53 am</a>
+            <p>版权声明：本文采用<a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+        </div>
+    
+    <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href= "/2021/04/18/%E6%9C%80%E5%B0%91%E6%93%8D%E4%BD%9C%E4%BD%BF%E6%95%B0%E7%BB%84%E9%80%92%E5%A2%9E/" title= "最少操作使数组递增">
+                    <div class="nextTitle">最少操作使数组递增</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2021/04/14/B+%E6%A0%91/" title= "B+树">
+                    <div class="prevTitle">B+树</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+    <div id="lv-container" data-id="city" data-uid= https://livere.com/>
+        <script type="text/javascript">
+            (function (d, s) {
+                var j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') { return; }
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+    </div>
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!-- gitalk评论 -->
+
+    <!-- utteranc评论 -->
+
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:1125664611@qq.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="https://github.com/promende" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+            
+                <span class="iconfont-archer wechat" title=wechat>
+                  
+                  <img class="profile-qr" src="/assets/wechat.jpg" />
+                </span>
+            
+        
+    
+        
+            
+                <span class="iconfont-archer qq" title=qq>
+                  
+                  <img class="profile-qr" src="/assets/qq.png" />
+                </span>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            
+                <a href="https://space.bilibili.com/16113664" class="iconfont-archer bilibili" target="_blank" title=bilibili></a>
+            
+        
+    
+        
+    
+        
+    
+        
+            
+                <a href="https://blog.csdn.net/weixin_43203889?spm=1000.2115.3001.5343" class="iconfont-archer others" target="_blank" title=others></a>
+            
+        
+    
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+    
+     
+    <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span> :)</span>
+    
+    </div>
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%9F%A5%E8%AF%86%E4%BA%A7%E6%9D%83%E4%BF%9D%E6%8A%A4"><span class="toc-number">1.</span> <span class="toc-text">知识产权保护</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%BF%9D%E6%8A%A4%E6%9C%9F%E9%99%90"><span class="toc-number">1.0.1.</span> <span class="toc-text">1 保护期限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%9F%A5%E8%AF%86%E4%BA%A7%E6%9D%83%E4%BA%BA%E7%A1%AE%E5%AE%9A"><span class="toc-number">1.0.2.</span> <span class="toc-text">2 知识产权人确定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E4%BE%B5%E6%9D%83%E5%88%A4%E5%AE%9A"><span class="toc-number">1.0.3.</span> <span class="toc-text">3 侵权判定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98"><span class="toc-number">1.0.4.</span> <span class="toc-text">例题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2009%E5%B9%B4%E4%B8%8A%E5%8D%8A%E5%B9%B4%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88%E4%B8%8A%E5%8D%88%E9%A2%98"><span class="toc-number">1.0.5.</span> <span class="toc-text">2009年上半年软件设计师上午题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2009%E5%B9%B4%E4%B8%8B%E5%8D%8A%E5%B9%B4%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88%E4%B8%8A%E5%8D%88%E9%A2%98"><span class="toc-number">1.0.6.</span> <span class="toc-text">2009年下半年软件设计师上午题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2010%E5%B9%B4%E4%B8%8A%E5%8D%8A%E5%B9%B4%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88%E4%B8%8A%E5%8D%88%E9%A2%98"><span class="toc-number">1.0.7.</span> <span class="toc-text">2010年上半年软件设计师上午题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2010%E5%B9%B4%E4%B8%8B%E5%8D%8A%E5%B9%B4%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88%E4%B8%8A%E5%8D%88%E9%A2%98"><span class="toc-number">1.0.8.</span> <span class="toc-text">2010年下半年软件设计师上午题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2011%E5%B9%B4%E4%B8%8A%E5%8D%8A%E5%B9%B4%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88%E4%B8%8A%E5%8D%88%E9%A2%98"><span class="toc-number">1.0.9.</span> <span class="toc-text">2011年上半年软件设计师上午题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2011%E5%B9%B4%E4%B8%8B%E5%8D%8A%E5%B9%B4%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88%E4%B8%8A%E5%8D%88%E9%A2%98"><span class="toc-number">1.0.10.</span> <span class="toc-text">2011年下半年软件设计师上午题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2012%E5%B9%B4%E4%B8%8A%E5%8D%8A%E5%B9%B4%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88%E4%B8%8A%E5%8D%88%E9%A2%98"><span class="toc-number">1.0.11.</span> <span class="toc-text">2012年上半年软件设计师上午题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2012%E5%B9%B4%E4%B8%8B%E5%8D%8A%E5%B9%B4%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88%E4%B8%8A%E5%8D%88%E9%A2%98"><span class="toc-number">1.0.12.</span> <span class="toc-text">2012年下半年软件设计师上午题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2013%E5%B9%B4%E4%B8%8A%E5%8D%8A%E5%B9%B4%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88%E4%B8%8A%E5%8D%88%E9%A2%98"><span class="toc-number">1.0.13.</span> <span class="toc-text">2013年上半年软件设计师上午题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2013%E5%B9%B4%E4%B8%8B%E5%8D%8A%E5%B9%B4%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88%E4%B8%8A%E5%8D%88%E9%A2%98"><span class="toc-number">1.0.14.</span> <span class="toc-text">2013年下半年软件设计师上午题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2014%E5%B9%B4%E4%B8%8A%E5%8D%8A%E5%B9%B4%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88%E4%B8%8A%E5%8D%88%E9%A2%98"><span class="toc-number">1.0.15.</span> <span class="toc-text">2014年上半年软件设计师上午题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2014%E5%B9%B4%E4%B8%8B%E5%8D%8A%E5%B9%B4%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88%E4%B8%8A%E5%8D%88%E9%A2%98"><span class="toc-number">1.0.16.</span> <span class="toc-text">2014年下半年软件设计师上午题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015%E5%B9%B4%E4%B8%8A%E5%8D%8A%E5%B9%B4%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88%E4%B8%8A%E5%8D%88%E9%A2%98"><span class="toc-number">1.0.17.</span> <span class="toc-text">2015年上半年软件设计师上午题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015%E5%B9%B4%E4%B8%8B%E5%8D%8A%E5%B9%B4%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88%E4%B8%8A%E5%8D%88%E9%A2%98"><span class="toc-number">1.0.18.</span> <span class="toc-text">2015年下半年软件设计师上午题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2016%E5%B9%B4%E4%B8%8A%E5%8D%8A%E5%B9%B4%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88%E4%B8%8A%E5%8D%88%E9%A2%98"><span class="toc-number">1.0.19.</span> <span class="toc-text">2016年上半年软件设计师上午题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2016%E5%B9%B4%E4%B8%8B%E5%8D%8A%E5%B9%B4%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88%E4%B8%8A%E5%8D%88%E9%A2%98"><span class="toc-number">1.0.20.</span> <span class="toc-text">2016年下半年软件设计师上午题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2017%E5%B9%B4%E4%B8%8A%E5%8D%8A%E5%B9%B4%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88%E4%B8%8A%E5%8D%88%E9%A2%98"><span class="toc-number">1.0.21.</span> <span class="toc-text">2017年上半年软件设计师上午题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2017%E5%B9%B4%E4%B8%8B%E5%8D%8A%E5%B9%B4%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88%E4%B8%8A%E5%8D%88%E9%A2%98"><span class="toc-number">1.0.22.</span> <span class="toc-text">2017年下半年软件设计师上午题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2018%E5%B9%B4%E4%B8%8A%E5%8D%8A%E5%B9%B4%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88%E4%B8%8A%E5%8D%88%E9%A2%98"><span class="toc-number">1.0.23.</span> <span class="toc-text">2018年上半年软件设计师上午题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2018%E5%B9%B4%E4%B8%8B%E5%8D%8A%E5%B9%B4%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88%E4%B8%8A%E5%8D%88%E9%A2%98"><span class="toc-number">1.0.24.</span> <span class="toc-text">2018年下半年软件设计师上午题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019%E5%B9%B4%E4%B8%8A%E5%8D%8A%E5%B9%B4%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88%E4%B8%8A%E5%8D%88%E9%A2%98"><span class="toc-number">1.0.25.</span> <span class="toc-text">2019年上半年软件设计师上午题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019%E5%B9%B4%E4%B8%8B%E5%8D%8A%E5%B9%B4%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88%E4%B8%8A%E5%8D%88%E9%A2%98"><span class="toc-number">1.0.26.</span> <span class="toc-text">2019年下半年软件设计师上午题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2020%E5%B9%B4%E4%B8%8B%E5%8D%8A%E5%B9%B4%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88%E4%B8%8A%E5%8D%88%E9%A2%98"><span class="toc-number">1.0.27.</span> <span class="toc-text">2020年下半年软件设计师上午题</span></a></li></ol></li></ol></li></ol>
+    </div>
+    
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-panel-archives">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 130
+        </div>
+        <!-- search  -->
+        
+    </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2021 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/14</span><a class="archive-post-title" href= "/2021/06/14/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88%E8%80%83%E8%AF%95%E5%A4%8D%E4%B9%A0/" >软件设计师考试复习</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/13</span><a class="archive-post-title" href= "/2021/06/13/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84-JSON-%E5%BA%93%E6%95%99%E7%A8%8B%EF%BC%88%E4%B8%89%EF%BC%89%EF%BC%9A%E8%A7%A3%E6%9E%90%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%AC%94%E8%AE%B0/" >从零开始的 JSON 库教程（三）：解析字符串笔记</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/10</span><a class="archive-post-title" href= "/2021/06/10/%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92%E5%9F%BA%E7%A1%80%E6%80%BB%E5%A4%8D%E4%B9%A0/" >人机交互基础总复习</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/02</span><a class="archive-post-title" href= "/2021/06/02/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84-JSON-%E5%BA%93%E6%95%99%E7%A8%8B%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E8%A7%A3%E6%9E%90%E6%95%B0%E5%AD%97%E7%AC%94%E8%AE%B0/" >从零开始的 JSON 库教程（二）：解析数字笔记</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/01</span><a class="archive-post-title" href= "/2021/06/01/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84-JSON-%E5%BA%93%E6%95%99%E7%A8%8B%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E5%90%AF%E7%A8%8B%E7%AC%94%E8%AE%B0/" >从零开始的 JSON 库教程（一）：启程笔记</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/31</span><a class="archive-post-title" href= "/2021/05/31/C-algorithm-Other/" >C++ algorithm Other</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/29</span><a class="archive-post-title" href= "/2021/05/29/C-%E9%98%B2%E5%8D%AB%E5%BC%8F%E5%A3%B0%E6%98%8E/" >C++ 防卫式声明</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/29</span><a class="archive-post-title" href= "/2021/05/29/C-%E6%8B%B7%E8%B4%9D%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E3%80%81%E7%A7%BB%E5%8A%A8%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E3%80%81%E6%8B%B7%E8%B4%9D%E8%B5%8B%E5%80%BC%E5%87%BD%E6%95%B0%E3%80%81%E7%A7%BB%E5%8A%A8%E8%B5%8B%E5%80%BC%E5%87%BD%E6%95%B0/" >C++ 拷贝构造函数、移动构造函数、拷贝赋值函数、移动赋值函数</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/24</span><a class="archive-post-title" href= "/2021/05/24/%E5%A4%9A%E5%AA%92%E4%BD%93%E5%9F%BA%E7%A1%80/" >多媒体基础</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/24</span><a class="archive-post-title" href= "/2021/05/24/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E4%B8%8E%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E7%A8%8B%E5%BA%8F%E5%9F%BA%E7%A1%80/" >程序设计语言与语言处理程序基础</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/24</span><a class="archive-post-title" href= "/2021/05/24/%E7%B3%BB%E7%BB%9F%E5%AE%89%E5%85%A8%E5%88%86%E6%9E%90%E4%B8%8E%E8%AE%BE%E8%AE%A1/" >系统安全分析与设计</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2021/05/23/5765-%E8%B7%B3%E8%B7%83%E6%B8%B8%E6%88%8F-VII/" >5765. 跳跃游戏 VII</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2021/05/23/5763-%E5%93%AA%E7%A7%8D%E8%BF%9E%E7%BB%AD%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%9B%B4%E9%95%BF/" >5763. 哪种连续子字符串更长</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2021/05/23/5764-%E5%87%86%E6%97%B6%E5%88%B0%E8%BE%BE%E7%9A%84%E5%88%97%E8%BD%A6%E6%9C%80%E5%B0%8F%E6%97%B6%E9%80%9F/" >5764. 准时到达的列车最小时速</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/22</span><a class="archive-post-title" href= "/2021/05/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" >计算机网络</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/21</span><a class="archive-post-title" href= "/2021/05/21/C-algorithm-Binary-search/" >C++ algorithm Binary search</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/21</span><a class="archive-post-title" href= "/2021/05/21/C-algorithm-Sorting/" >C++ algorithm Sorting</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/21</span><a class="archive-post-title" href= "/2021/05/21/C-tuple/" >C++ tuple</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/21</span><a class="archive-post-title" href= "/2021/05/21/C-initializer-list/" >C++ initializer_list</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/20</span><a class="archive-post-title" href= "/2021/05/20/C-algorithm/" >C++ algorithm</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/19</span><a class="archive-post-title" href= "/2021/05/19/iterator-%E7%9A%84%E4%B8%80%E4%BA%9B%E7%89%B9%E6%AE%8A%E7%94%A8%E6%B3%95/" >iterator 的一些特殊用法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/19</span><a class="archive-post-title" href= "/2021/05/19/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/" >数据库系统</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/19</span><a class="archive-post-title" href= "/2021/05/19/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/" >操作系统基本原理</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/19</span><a class="archive-post-title" href= "/2021/05/19/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E4%B8%8E%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/" >计算机组成与体系结构</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/19</span><a class="archive-post-title" href= "/2021/05/19/list-%E4%B8%8E-forward-list-%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E7%89%B9%E6%AE%8A%E6%96%B9%E6%B3%95/" >list 与 forward_list 中的一些特殊方法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/19</span><a class="archive-post-title" href= "/2021/05/19/%E5%BA%8F%E5%88%97%E5%AE%B9%E5%99%A8%E4%B8%AD%E7%9A%84-erase-%E6%96%B9%E6%B3%95/" >序列容器中的 erase 方法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/19</span><a class="archive-post-title" href= "/2021/05/19/%E5%BA%8F%E5%88%97%E5%AE%B9%E5%99%A8%E4%B8%AD%E7%9A%84-assign-%E6%96%B9%E6%B3%95/" >序列容器中的 assign 方法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/18</span><a class="archive-post-title" href= "/2021/05/18/%E5%BA%8F%E5%88%97%E5%AE%B9%E5%99%A8%E4%B8%AD%E7%9A%84%20insert%20%E6%96%B9%E6%B3%95/" >序列容器中的 insert 方法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/16</span><a class="archive-post-title" href= "/2021/05/16/%E8%80%A6%E5%90%88%E4%B8%8E%E5%86%85%E8%81%9A%E7%9A%84%E5%88%86%E7%B1%BB/" >耦合与内聚的分类</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/16</span><a class="archive-post-title" href= "/2021/05/16/5762-%E6%81%B0%E6%9C%89-K-%E6%A0%B9%E6%9C%A8%E6%A3%8D%E5%8F%AF%E4%BB%A5%E7%9C%8B%E5%88%B0%E7%9A%84%E6%8E%92%E5%88%97%E6%95%B0%E7%9B%AE/" >5762. 恰有 K 根木棍可以看到的排列数目</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/16</span><a class="archive-post-title" href= "/2021/05/16/%E5%AE%89%E5%85%A8%E6%94%BB%E5%87%BB/" >安全攻击</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/16</span><a class="archive-post-title" href= "/2021/05/16/5760-%E6%9E%84%E6%88%90%E4%BA%A4%E6%9B%BF%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%9C%80%E8%A6%81%E7%9A%84%E6%9C%80%E5%B0%8F%E4%BA%A4%E6%8D%A2%E6%AC%A1%E6%95%B0/" >5760. 构成交替字符串需要的最小交换次数</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/16</span><a class="archive-post-title" href= "/2021/05/16/5761-%E6%89%BE%E5%87%BA%E5%92%8C%E4%B8%BA%E6%8C%87%E5%AE%9A%E5%80%BC%E7%9A%84%E4%B8%8B%E6%A0%87%E5%AF%B9/" >5761. 找出和为指定值的下标对</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/16</span><a class="archive-post-title" href= "/2021/05/16/5212-%E5%90%91%E4%B8%8B%E5%8F%96%E6%95%B4%E6%95%B0%E5%AF%B9%E5%92%8C/" >5212. 向下取整数对和</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/16</span><a class="archive-post-title" href= "/2021/05/16/5759-%E6%89%BE%E5%87%BA%E6%89%80%E6%9C%89%E5%AD%90%E9%9B%86%E7%9A%84%E5%BC%82%E6%88%96%E6%80%BB%E5%92%8C%E5%86%8D%E6%B1%82%E5%92%8C/" >5759. 找出所有子集的异或总和再求和</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/16</span><a class="archive-post-title" href= "/2021/05/16/5744-%E6%97%8B%E8%BD%AC%E7%9B%92%E5%AD%90/" >5744. 旋转盒子</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/16</span><a class="archive-post-title" href= "/2021/05/16/5742-%E5%B0%86%E5%8F%A5%E5%AD%90%E6%8E%92%E5%BA%8F/" >5742. 将句子排序</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/16</span><a class="archive-post-title" href= "/2021/05/16/5743-%E5%A2%9E%E9%95%BF%E7%9A%84%E5%86%85%E5%AD%98%E6%B3%84%E9%9C%B2/" >5743. 增长的内存泄露</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/15</span><a class="archive-post-title" href= "/2021/05/15/C-%E5%AE%B9%E5%99%A8-list/" >C++容器 list</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/15</span><a class="archive-post-title" href= "/2021/05/15/vector%E4%B8%ADresize%E4%B8%8Ereserve%E7%9A%84%E5%8C%BA%E5%88%AB/" >vector中resize与reserve的区别</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/15</span><a class="archive-post-title" href= "/2021/05/15/C-%E5%AE%B9%E5%99%A8-vector/" >C++容器 vector</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/15</span><a class="archive-post-title" href= "/2021/05/15/C-%E5%AE%B9%E5%99%A8-array/" >C++容器 array</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/15</span><a class="archive-post-title" href= "/2021/05/15/iterator-%E5%92%8C-const-iterator/" >iterator 与 const_iterator</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/13</span><a class="archive-post-title" href= "/2021/05/13/1269-%E5%81%9C%E5%9C%A8%E5%8E%9F%E5%9C%B0%E7%9A%84%E6%96%B9%E6%A1%88%E6%95%B0/" >1269. 停在原地的方案数</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/09</span><a class="archive-post-title" href= "/2021/05/09/C-%E6%A0%87%E5%87%86%E5%BA%93-STL-%E4%B8%8E%E6%B3%9B%E5%9E%8B%E7%BC%96%E7%A8%8B/" >C++标准库(STL)与泛型编程</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/09</span><a class="archive-post-title" href= "/2021/05/09/5751-%E4%B8%8B%E6%A0%87%E5%AF%B9%E4%B8%AD%E7%9A%84%E6%9C%80%E5%A4%A7%E8%B7%9D%E7%A6%BB/" >5751. 下标对中的最大距离</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/09</span><a class="archive-post-title" href= "/2021/05/09/5752-%E5%AD%90%E6%95%B0%E7%BB%84%E6%9C%80%E5%B0%8F%E4%B9%98%E7%A7%AF%E7%9A%84%E6%9C%80%E5%A4%A7%E5%80%BC/" >5752. 子数组最小乘积的最大值</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/09</span><a class="archive-post-title" href= "/2021/05/09/5750-%E4%BA%BA%E5%8F%A3%E6%9C%80%E5%A4%9A%E7%9A%84%E5%B9%B4%E4%BB%BD/" >5750. 人口最多的年份</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/08</span><a class="archive-post-title" href= "/2021/05/08/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/" >数据链路层</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/04</span><a class="archive-post-title" href= "/2021/05/04/C-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B/" >C++ 面向对象高级编程</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/04</span><a class="archive-post-title" href= "/2021/05/04/%E7%94%B5%E8%B7%AF%E4%BA%A4%E6%8D%A2%E3%80%81%E6%8A%A5%E6%96%87%E4%BA%A4%E6%8D%A2%E4%B8%8E%E5%88%86%E7%BB%84%E4%BA%A4%E6%8D%A2/" >电路交换、报文交换与分组交换</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/02</span><a class="archive-post-title" href= "/2021/05/02/%E9%93%BE%E6%8E%A5/" >链接</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/02</span><a class="archive-post-title" href= "/2021/05/02/5733-%E6%9C%80%E8%BF%91%E7%9A%84%E6%88%BF%E9%97%B4/" >5733. 最近的房间</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/02</span><a class="archive-post-title" href= "/2021/05/02/5730-%E5%B0%86%E6%89%80%E6%9C%89%E6%95%B0%E5%AD%97%E7%94%A8%E5%AD%97%E7%AC%A6%E6%9B%BF%E6%8D%A2/" >5730. 将所有数字用字符替换</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/02</span><a class="archive-post-title" href= "/2021/05/02/5732-%E5%87%8F%E5%B0%8F%E5%92%8C%E9%87%8D%E6%96%B0%E6%8E%92%E5%88%97%E6%95%B0%E7%BB%84%E5%90%8E%E7%9A%84%E6%9C%80%E5%A4%A7%E5%85%83%E7%B4%A0/" >5732. 减小和重新排列数组后的最大元素</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/02</span><a class="archive-post-title" href= "/2021/05/02/5731-%E5%BA%A7%E4%BD%8D%E9%A2%84%E7%BA%A6%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/" >5731. 座位预约管理系统</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/01</span><a class="archive-post-title" href= "/2021/05/01/%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86/" >设备管理</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/01</span><a class="archive-post-title" href= "/2021/05/01/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/" >内存管理</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/30</span><a class="archive-post-title" href= "/2021/04/30/%E6%AD%BB%E9%94%81/" >死锁</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/28</span><a class="archive-post-title" href= "/2021/04/28/Cache%E4%B8%8E%E4%B8%BB%E5%AD%98%E7%9A%84%E5%9C%B0%E5%9D%80%E6%98%A0%E5%83%8F/" >Cache与主存的地址映像</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/28</span><a class="archive-post-title" href= "/2021/04/28/%E8%BF%9B%E7%A8%8B%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95/" >进程调度算法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/28</span><a class="archive-post-title" href= "/2021/04/28/%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/" >进程与线程</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/28</span><a class="archive-post-title" href= "/2021/04/28/L2-038-%E7%97%85%E6%AF%92%E6%BA%AF%E6%BA%90/" >L2-038 病毒溯源</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/28</span><a class="archive-post-title" href= "/2021/04/28/L2-037-%E5%8C%85%E8%A3%85%E6%9C%BA/" >L2-037 包装机</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/28</span><a class="archive-post-title" href= "/2021/04/28/L2-039-%E6%B8%85%E7%82%B9%E4%BB%A3%E7%A0%81%E5%BA%93/" >L2-039 清点代码库</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/28</span><a class="archive-post-title" href= "/2021/04/28/L1-077-%E5%A4%A7%E7%AC%A8%E9%92%9F%E7%9A%84%E5%BF%83%E6%83%85/" >L1-077 大笨钟的心情</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/28</span><a class="archive-post-title" href= "/2021/04/28/L2-040-%E5%93%B2%E5%93%B2%E6%89%93%E6%B8%B8%E6%88%8F/" >L2-040 哲哲打游戏</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/27</span><a class="archive-post-title" href= "/2021/04/27/L1-078-%E5%90%89%E8%80%81%E5%B8%88%E7%9A%84%E5%9B%9E%E5%BD%92/" >L1-078 吉老师的回归</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/27</span><a class="archive-post-title" href= "/2021/04/27/L1-079-%E5%A4%A9%E6%A2%AF%E8%B5%9B%E7%9A%84%E5%96%84%E8%89%AF/" >L1-079 天梯赛的善良</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/27</span><a class="archive-post-title" href= "/2021/04/27/L1-080-%E4%B9%98%E6%B3%95%E5%8F%A3%E8%AF%80%E6%95%B0%E5%88%97/" >L1-080 乘法口诀数列</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/27</span><a class="archive-post-title" href= "/2021/04/27/%E5%AE%8F%E5%86%85%E6%A0%B8%E5%92%8C%E5%BE%AE%E5%86%85%E6%A0%B8/" >宏内核和微内核</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/27</span><a class="archive-post-title" href= "/2021/04/27/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%89%B9%E5%BE%81/" >操作系统的基本特征</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/26</span><a class="archive-post-title" href= "/2021/04/26/%E5%93%88%E5%A4%AB%E6%9B%BC%E7%BC%96%E7%A0%81/" >哈夫曼编码</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/26</span><a class="archive-post-title" href= "/2021/04/26/Demilitarized-Zone/" >Demilitarized Zone</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/26</span><a class="archive-post-title" href= "/2021/04/26/UML-%E5%9B%9B%E7%A7%8D%E4%BA%8B%E7%89%A9/" >UML-四种事物</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/26</span><a class="archive-post-title" href= "/2021/04/26/%E6%84%9F%E8%A7%89%E5%AA%92%E4%BD%93%E3%80%81%E8%A1%A8%E7%A4%BA%E5%AA%92%E4%BD%93%E3%80%81%E8%A1%A8%E7%8E%B0%E5%AA%92%E4%BD%93%E3%80%81%E5%AD%98%E5%82%A8%E5%AA%92%E4%BD%93%E5%92%8C%E4%BC%A0%E8%BE%93%E5%AA%92%E4%BD%93%20/" >感觉媒体、表示媒体、表现媒体、存储媒体和传输媒体</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/26</span><a class="archive-post-title" href= "/2021/04/26/Flynn%E5%88%86%E7%B1%BB%E6%B3%95/" >Flynn分类法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/26</span><a class="archive-post-title" href= "/2021/04/26/UML-%E6%97%B6%E5%BA%8F%E5%9B%BE/" >UML-时序图</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/26</span><a class="archive-post-title" href= "/2021/04/26/UML-%E7%B1%BB%E5%9B%BE/" >UML-时序图</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/24</span><a class="archive-post-title" href= "/2021/04/24/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%80%9D%E6%83%B3/" >有关面向对象的一些总结</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/23</span><a class="archive-post-title" href= "/2021/04/23/%E5%B9%B6%E6%9F%A5%E9%9B%86/" >并查集</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/23</span><a class="archive-post-title" href= "/2021/04/23/L2-029-%E7%89%B9%E7%AB%8B%E7%8B%AC%E8%A1%8C%E7%9A%84%E5%B9%B8%E7%A6%8F/" >L2-029 特立独行的幸福</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/22</span><a class="archive-post-title" href= "/2021/04/22/C++%20map/" >C++ map</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/22</span><a class="archive-post-title" href= "/2021/04/22/C++%20unordered_map/" >C++ unordered_map</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/22</span><a class="archive-post-title" href= "/2021/04/22/L2-019%20%E6%82%84%E6%82%84%E5%85%B3%E6%B3%A8/" >L2-019 悄悄关注</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/21</span><a class="archive-post-title" href= "/2021/04/21/%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2/" >最长回文子串</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/21</span><a class="archive-post-title" href= "/2021/04/21/L2-020%20%E5%8A%9F%E5%A4%AB%E4%BC%A0%E4%BA%BA/" >L2-020 功夫传人</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/21</span><a class="archive-post-title" href= "/2021/04/21/L2-021%20%E7%82%B9%E8%B5%9E%E7%8B%82%E9%AD%94/" >L2-021 点赞狂魔</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/21</span><a class="archive-post-title" href= "/2021/04/21/L2-022-%E9%87%8D%E6%8E%92%E9%93%BE%E8%A1%A8/" >L2-022 重排链表</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/21</span><a class="archive-post-title" href= "/2021/04/21/L2-026-%E5%B0%8F%E5%AD%97%E8%BE%88/" >L2-026 小字辈</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/21</span><a class="archive-post-title" href= "/2021/04/21/L2-036-%E7%BD%91%E7%BA%A2%E7%82%B9%E6%89%93%E5%8D%A1%E6%94%BB%E7%95%A5/" >L2-036 网红点打卡攻略</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/21</span><a class="archive-post-title" href= "/2021/04/21/Cloneable%E6%8E%A5%E5%8F%A3/" >Cloneable接口</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/21</span><a class="archive-post-title" href= "/2021/04/21/IOC/" >IOC与DI</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/21</span><a class="archive-post-title" href= "/2021/04/21/CISC%E5%92%8CRISC/" >CISC和RISC</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/19</span><a class="archive-post-title" href= "/2021/04/19/32.%20%E6%9C%80%E9%95%BF%E6%9C%89%E6%95%88%E6%8B%AC%E5%8F%B7/" >32. 最长有效括号</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/18</span><a class="archive-post-title" href= "/2021/04/18/%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F%E5%92%8C%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E7%9A%84%E5%8C%BA%E5%88%AB/" >全局变量和局部变量的区别</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/18</span><a class="archive-post-title" href= "/2021/04/18/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E7%B4%A2%E5%BC%95%E6%9C%89%E5%93%AA%E4%BA%9B%E5%88%86%E7%B1%BB%E8%81%9A%E7%B0%87%E7%B4%A2%E5%BC%95%E5%92%8C%E9%9D%9E%E8%81%9A%E7%B0%87%E7%B4%A2%E5%BC%95%E7%9A%84%E5%8C%BA%E5%88%AB/" >索引</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/18</span><a class="archive-post-title" href= "/2021/04/18/%E6%9C%80%E5%B0%91%E6%93%8D%E4%BD%9C%E4%BD%BF%E6%95%B0%E7%BB%84%E9%80%92%E5%A2%9E/" >最少操作使数组递增</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/18</span><a class="archive-post-title" href= "/2021/04/18/%E6%AF%8F%E4%B8%AA%E6%9F%A5%E8%AF%A2%E7%9A%84%E6%9C%80%E5%A4%A7%E5%BC%82%E6%88%96%E5%80%BC/" >每个查询的最大异或值</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/18</span><a class="archive-post-title" href= "/2021/04/18/%E7%BB%9F%E8%AE%A1%E4%B8%80%E4%B8%AA%E5%9C%86%E4%B8%AD%E7%82%B9%E7%9A%84%E6%95%B0%E7%9B%AE/" >统计一个圆中点的数目</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/18</span><a class="archive-post-title" href= "/2021/04/18/%E8%BF%9B%E7%A8%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F/" >进程间的通信方式</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/18</span><a class="archive-post-title" href= "/2021/04/18/%E7%9F%A5%E8%AF%86%E4%BA%A7%E6%9D%83%E4%BF%9D%E6%8A%A4/" >知识产权保护</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/14</span><a class="archive-post-title" href= "/2021/04/14/B+%E6%A0%91/" >B+树</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/14</span><a class="archive-post-title" href= "/2021/04/14/B%E6%A0%91/" >B树</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/14</span><a class="archive-post-title" href= "/2021/04/14/C++%20priority_queue/" >C++ priority_queue</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/14</span><a class="archive-post-title" href= "/2021/04/14/C++%20regex/" >C++ regex</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/14</span><a class="archive-post-title" href= "/2021/04/14/C++%20set/" >C++ set</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/14</span><a class="archive-post-title" href= "/2021/04/14/C++%20%E5%8F%96%E6%95%B4/" >C++ 取整</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/14</span><a class="archive-post-title" href= "/2021/04/14/KMP/" >KMP模板</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/14</span><a class="archive-post-title" href= "/2021/04/14/%E5%A0%86%E4%B8%8E%E6%A0%88/" >堆与栈</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/14</span><a class="archive-post-title" href= "/2021/04/14/%E7%BA%A2%E9%BB%91%E6%A0%91/" >字符串相乘</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/07</span><a class="archive-post-title" href= "/2021/04/07/%E5%89%8D%E8%B6%8B%E5%9B%BE/" >前趋图</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/07</span><a class="archive-post-title" href= "/2021/04/07/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/" >平衡二叉树</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/07</span><a class="archive-post-title" href= "/2021/04/07/%E6%9C%89%E9%99%90%E8%87%AA%E5%8A%A8%E6%9C%BA/" >有限自动机</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/07</span><a class="archive-post-title" href= "/2021/04/07/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" >排序算法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/07</span><a class="archive-post-title" href= "/2021/04/07/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88%E7%AC%94%E8%AE%B0/" >软件设计师笔记</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/05</span><a class="archive-post-title" href= "/2021/04/05/C++%20stack/" >C++ stack</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/05</span><a class="archive-post-title" href= "/2021/04/05/McCabe%E5%BA%A6%E9%87%8F%E6%B3%95/" >McCabe度量法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/05</span><a class="archive-post-title" href= "/2021/04/05/NULL%E4%B8%8Enullptr/" >NULL与nullptr</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/05</span><a class="archive-post-title" href= "/2021/04/05/TCP%E7%9A%84%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%92%8C%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/" >TCP的三次握手和四次挥手</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/05</span><a class="archive-post-title" href= "/2021/04/05/TCP/" >TCP与UDP</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/05</span><a class="archive-post-title" href= "/2021/04/05/Trie%E6%A0%91/" >Trie树</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/05</span><a class="archive-post-title" href= "/2021/04/05/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/" >二叉树的遍历</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/05</span><a class="archive-post-title" href= "/2021/04/05/%E4%BC%A0%E5%80%BC%E3%80%81%E4%BC%A0%E5%BC%95%E7%94%A8%E8%B0%83%E7%94%A8%E5%87%BD%E6%95%B0/" >传值、传引用调用函数</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/05</span><a class="archive-post-title" href= "/2021/04/05/%E5%8D%8A%E5%8F%8C%E5%B7%A5%E4%B8%8E%E5%85%A8%E5%8F%8C%E5%B7%A5/" >单工、半双工与全双工</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/05</span><a class="archive-post-title" href= "/2021/04/05/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8A%9F%E8%83%BD/" >操作系统的功能</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/26</span><a class="archive-post-title" href= "/2019/04/26/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" >git基本使用方法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/21</span><a class="archive-post-title" href= "/2019/02/21/Book-finder/" >Book finder</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/21</span><a class="archive-post-title" href= "/2019/02/21/Crawl-all-the-books-corresponding-to-the-label/" >Crawl all the books corresponding to the label</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/21</span><a class="archive-post-title" href= "/2019/02/21/The-new-york-times-bestseller/" >The new york times bestseller</a>
+        </li>
+    
+    </div>
+  </div>
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="leetcode"><span class="iconfont-archer">&#xe606;</span>leetcode</span>
+    
+        <span class="sidebar-tag-name" data-tags="动态规划"><span class="iconfont-archer">&#xe606;</span>动态规划</span>
+    
+        <span class="sidebar-tag-name" data-tags="字符串"><span class="iconfont-archer">&#xe606;</span>字符串</span>
+    
+        <span class="sidebar-tag-name" data-tags="树"><span class="iconfont-archer">&#xe606;</span>树</span>
+    
+        <span class="sidebar-tag-name" data-tags="数据结构"><span class="iconfont-archer">&#xe606;</span>数据结构</span>
+    
+        <span class="sidebar-tag-name" data-tags="C++"><span class="iconfont-archer">&#xe606;</span>C++</span>
+    
+        <span class="sidebar-tag-name" data-tags="STL"><span class="iconfont-archer">&#xe606;</span>STL</span>
+    
+        <span class="sidebar-tag-name" data-tags="algorithm"><span class="iconfont-archer">&#xe606;</span>algorithm</span>
+    
+        <span class="sidebar-tag-name" data-tags="容器"><span class="iconfont-archer">&#xe606;</span>容器</span>
+    
+        <span class="sidebar-tag-name" data-tags="操作系统"><span class="iconfont-archer">&#xe606;</span>操作系统</span>
+    
+        <span class="sidebar-tag-name" data-tags="软考"><span class="iconfont-archer">&#xe606;</span>软考</span>
+    
+        <span class="sidebar-tag-name" data-tags="Java"><span class="iconfont-archer">&#xe606;</span>Java</span>
+    
+        <span class="sidebar-tag-name" data-tags="PTA"><span class="iconfont-archer">&#xe606;</span>PTA</span>
+    
+        <span class="sidebar-tag-name" data-tags="计算机网络"><span class="iconfont-archer">&#xe606;</span>计算机网络</span>
+    
+        <span class="sidebar-tag-name" data-tags="UML"><span class="iconfont-archer">&#xe606;</span>UML</span>
+    
+        <span class="sidebar-tag-name" data-tags="迭代器"><span class="iconfont-archer">&#xe606;</span>迭代器</span>
+    
+        <span class="sidebar-tag-name" data-tags="C"><span class="iconfont-archer">&#xe606;</span>C</span>
+    
+        <span class="sidebar-tag-name" data-tags="JSON"><span class="iconfont-archer">&#xe606;</span>JSON</span>
+    
+        <span class="sidebar-tag-name" data-tags="信息安全"><span class="iconfont-archer">&#xe606;</span>信息安全</span>
+    
+        <span class="sidebar-tag-name" data-tags="模板"><span class="iconfont-archer">&#xe606;</span>模板</span>
+    
+        <span class="sidebar-tag-name" data-tags="多媒体， 软考"><span class="iconfont-archer">&#xe606;</span>多媒体， 软考</span>
+    
+        <span class="sidebar-tag-name" data-tags="数据库"><span class="iconfont-archer">&#xe606;</span>数据库</span>
+    
+        <span class="sidebar-tag-name" data-tags="软件工程"><span class="iconfont-archer">&#xe606;</span>软件工程</span>
+    
+        <span class="sidebar-tag-name" data-tags="排序"><span class="iconfont-archer">&#xe606;</span>排序</span>
+    
+        <span class="sidebar-tag-name" data-tags="Spring"><span class="iconfont-archer">&#xe606;</span>Spring</span>
+    
+        <span class="sidebar-tag-name" data-tags="人机交互"><span class="iconfont-archer">&#xe606;</span>人机交互</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: true
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: "/",
+        author: "F_JustWei"
+    }
+</script>
+    <!-- CDN failover -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ === 'undefined')
+        {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js">\x3C/script>')
+        }
+    </script>
+    <script src="/scripts/main.js"></script>
+    <!-- algolia -->
+    
+    <!-- busuanzi  -->
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
+     
+    </body>
+</html>
+
+

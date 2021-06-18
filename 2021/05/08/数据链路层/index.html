@@ -1,0 +1,3780 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+    <!-- title -->
+
+
+
+
+<!-- keywords -->
+
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" >
+    <meta name="author" content="F_JustWei">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="F_JustWei">
+    
+    <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
+    
+    <meta name="description" content="">
+    <meta name="description" content="数据链路层1 数据链路层的三个基本问题1.1 封装成帧封装成帧（framing）就是在一段数据的前后分别添加首部和尾部，这样就构成了一个帧。接收端在收到物理层上交的比特流后，就能根据首部和尾部的标记，从比特流中识别帧的开始和结束。  首部和尾部的一个重要作用就是进行帧定界（即确定帧的界限）。此外，首部和尾部还包括许多必要的控制信息。 为了提高帧的传输效率，应当使帧的数据部分长度尽量大于首部和尾部的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据链路层">
+<meta property="og:url" content="http://139.196.79.90/2021/05/08/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/index.html">
+<meta property="og:site_name" content="Promende">
+<meta property="og:description" content="数据链路层1 数据链路层的三个基本问题1.1 封装成帧封装成帧（framing）就是在一段数据的前后分别添加首部和尾部，这样就构成了一个帧。接收端在收到物理层上交的比特流后，就能根据首部和尾部的标记，从比特流中识别帧的开始和结束。  首部和尾部的一个重要作用就是进行帧定界（即确定帧的界限）。此外，首部和尾部还包括许多必要的控制信息。 为了提高帧的传输效率，应当使帧的数据部分长度尽量大于首部和尾部的">
+<meta property="og:locale">
+<meta property="og:image" content="https://gitee.com/promende/blog_imgs/raw/master/20210508205601.png">
+<meta property="og:image" content="https://gitee.com/promende/blog_imgs/raw/master/20210508214108.png">
+<meta property="og:image" content="https://gitee.com/promende/blog_imgs/raw/master/image-20210508215346913.png">
+<meta property="og:image" content="https://gitee.com/promende/blog_imgs/raw/master/image-20210508220437929.png">
+<meta property="og:image" content="https://gitee.com/promende/blog_imgs/raw/master/image-20210508225227226.png">
+<meta property="og:image" content="https://gitee.com/promende/blog_imgs/raw/master/20161205173011359">
+<meta property="og:image" content="https://gitee.com/promende/blog_imgs/raw/master/20161205173553297">
+<meta property="og:image" content="https://gitee.com/promende/blog_imgs/raw/master/20161205173744517">
+<meta property="og:image" content="https://gitee.com/promende/blog_imgs/raw/master/20161205174225908">
+<meta property="og:image" content="https://gitee.com/promende/blog_imgs/raw/master/image-20210509210934541.png">
+<meta property="og:image" content="https://gitee.com/promende/blog_imgs/raw/master/20160405171237406">
+<meta property="og:image" content="https://gitee.com/promende/blog_imgs/raw/master/image-20210509213049729.png">
+<meta property="og:image" content="https://gitee.com/promende/blog_imgs/raw/master/image-20210509213120186.png">
+<meta property="og:image" content="https://gitee.com/promende/blog_imgs/raw/master/image-20210509213249906.png">
+<meta property="og:image" content="https://gitee.com/promende/blog_imgs/raw/master/image-20210509213323565.png">
+<meta property="article:published_time" content="2021-05-08T09:18:21.000Z">
+<meta property="article:modified_time" content="2021-05-19T07:06:01.286Z">
+<meta property="article:author" content="F_JustWei">
+<meta property="article:tag" content="计算机网络">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/promende/blog_imgs/raw/master/20210508205601.png">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    
+    <title>数据链路层 · F_JustWei&#39;s Studio</title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+</style>
+
+    <link rel="preload" href= "/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="stylesheet" href= "/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+(function( w ){
+	"use strict";
+	// rel=preload support test
+	if( !w.loadCSS ){
+		w.loadCSS = function(){};
+	}
+	// define on the loadCSS obj
+	var rp = loadCSS.relpreload = {};
+	// rel=preload feature support test
+	// runs once and returns a function for compat purposes
+	rp.support = (function(){
+		var ret;
+		try {
+			ret = w.document.createElement( "link" ).relList.supports( "preload" );
+		} catch (e) {
+			ret = false;
+		}
+		return function(){
+			return ret;
+		};
+	})();
+
+	// if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+	// then change that media back to its intended value on load
+	rp.bindMediaToggle = function( link ){
+		// remember existing media attr for ultimate state, or default to 'all'
+		var finalMedia = link.media || "all";
+
+		function enableStylesheet(){
+			link.media = finalMedia;
+		}
+
+		// bind load handlers to enable media
+		if( link.addEventListener ){
+			link.addEventListener( "load", enableStylesheet );
+		} else if( link.attachEvent ){
+			link.attachEvent( "onload", enableStylesheet );
+		}
+
+		// Set rel and non-applicable media type to start an async request
+		// note: timeout allows this to happen async to let rendering continue in IE
+		setTimeout(function(){
+			link.rel = "stylesheet";
+			link.media = "only x";
+		});
+		// also enable media after 3 seconds,
+		// which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+		setTimeout( enableStylesheet, 3000 );
+	};
+
+	// loop through link elements in DOM
+	rp.poly = function(){
+		// double check this to prevent external calls from running
+		if( rp.support() ){
+			return;
+		}
+		var links = w.document.getElementsByTagName( "link" );
+		for( var i = 0; i < links.length; i++ ){
+			var link = links[ i ];
+			// qualify links to those with rel=preload and as=style attrs
+			if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+				// prevent rerunning on link
+				link.setAttribute( "data-loadcss", true );
+				// bind listeners to toggle media back
+				rp.bindMediaToggle( link );
+			}
+		}
+	};
+
+	// if unsupported, run the polyfill
+	if( !rp.support() ){
+		// run once at least
+		rp.poly();
+
+		// rerun poly on an interval until onload
+		var run = w.setInterval( rp.poly, 500 );
+		if( w.addEventListener ){
+			w.addEventListener( "load", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		} else if( w.attachEvent ){
+			w.attachEvent( "onload", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		}
+	}
+
+
+	// commonjs
+	if( typeof exports !== "undefined" ){
+		exports.loadCSS = loadCSS;
+	}
+	else {
+		w.loadCSS = loadCSS;
+	}
+}( typeof global !== "undefined" ? global : this ) );
+</script>
+
+    <link rel="icon" href= "/assets/favicon.ico" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script" />
+    <link rel="preload" href="/scripts/main.js" as="script" />
+    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
+    
+    <!-- fancybox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >F_JustWei&#39;s Studio.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">数据链路层</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href=/>F_JustWei's Studio.</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro" style="
+
+
+
+
+
+
+
+height:50vh;
+">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            数据链路层
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "计算机网络">计算机网络</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">4.6k</span>阅读时长: <span class="post-count reading-time">17 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2021/05/08</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+        <script>
+ 
+  // get user agent
+  var browser = {
+    versions: function () {
+      var u = window.navigator.userAgent;
+      return {
+        userAgent: u,
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+        iPad: u.indexOf('iPad') > -1, //是否为iPad
+        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+      };
+    }()
+  }
+  console.log("userAgent:" + browser.versions.userAgent);
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded');
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in');
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb(){
+    if (browser.versions.uc) {
+      console.log("UCBrowser");
+      fontLoaded();
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular']
+        },
+        loading: function () {  //所有字体开始加载
+          // console.log('loading');
+        },
+        active: function () {  //所有字体已渲染
+          fontLoaded();
+        },
+        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout');
+          fontLoaded();
+        },
+        timeout: 5000 // Set the timeout to two seconds
+      });
+    }
+  }
+
+  function asyncErr(){
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
+    if (err) { o.addEventListener('error', function (e) { err(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  var asyncLoadWithFallBack = function(arr, success, reject) {
+      var currReject = function(){
+        reject()
+        arr.shift()
+        if(arr.length)
+          async(arr[0], success, currReject)
+        }
+
+      async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack([
+    "https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", 
+    "https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js",
+    "/lib/webfontloader.min.js"
+  ], asyncCb, asyncErr)
+</script>        
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <h1 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a><center>数据链路层</center></h1><h3 id="1-数据链路层的三个基本问题"><a href="#1-数据链路层的三个基本问题" class="headerlink" title="1 数据链路层的三个基本问题"></a>1 数据链路层的三个基本问题</h3><h5 id="1-1-封装成帧"><a href="#1-1-封装成帧" class="headerlink" title="1.1 封装成帧"></a>1.1 封装成帧</h5><p>封装成帧（framing）就是在一段数据的前后分别添加首部和尾部，这样就构成了一个帧。接收端在收到物理层上交的比特流后，就能根据首部和尾部的标记，从比特流中识别帧的开始和结束。</p>
+<p><img src="https://gitee.com/promende/blog_imgs/raw/master/20210508205601.png" alt="img"></p>
+<p>首部和尾部的一个重要作用就是进行<strong>帧定界</strong>（即确定帧的界限）。此外，首部和尾部还包括许多必要的控制信息。</p>
+<p><strong>为了提高帧的传输效率，应当使帧的数据部分长度尽量大于首部和尾部的长度</strong>。</p>
+<p>最大传输单元 MTU（Maximum Transfer Unit）：帧数据部分长度上限。</p>
+<p>当数据是由可打印的 ASCII 码组成的文本文件时，帧定界可以使用特殊的<strong>帧定界符。</strong></p>
+<ul>
+<li>控制字符 SOH （Start Of Header）放在一帧的最前面，表示帧首部。</li>
+<li>控制字符 EOT （End Of Transmission）放在一帧的最后面，表示帧尾部。</li>
+</ul>
+<p>注意： SOH 和 EOT 都只是控制字符的名称，他们的十六进制编码分别是 01（二进制是00000001）和 04（二进制是00000100）。</p>
+<p> SOH ， EOT 并不是 S O H E O T这几个字符，只是名字而已。</p>
+<p>当传输中出现差错，帧定界符的作用更加明显。假设未发送完一个帧而发生故障，接收端就知道收到的数据是不完整的帧（只有首部），必须丢弃。</p>
+<p><img src="https://gitee.com/promende/blog_imgs/raw/master/20210508214108.png" alt=""></p>
+<h5 id="1-2-透明传输"><a href="#1-2-透明传输" class="headerlink" title="1.2 透明传输"></a>1.2 透明传输</h5><p>如果数据中的某个字节的二进制代码恰好和 SOH 或 EOT 一样，数据链路层就会错误地找到帧的边界。</p>
+<p><img src="https://gitee.com/promende/blog_imgs/raw/master/image-20210508215346913.png" alt="image-20210508215346913"></p>
+<p>为了解决透明传输问题，<strong>字节填充法或字符填充</strong>：在控制字符SOH、EOT的前面插入一个<strong>转义字符 ESC（其十六进制编码是 1B，二进制是 0001 1011）。</strong>而接收端的数据链路层在把数据送往网络层之前删除这个插入的转义字符。</p>
+<p>当然如果转义字符 ESC 也出现在数据当中，那么解决的方法仍然是在转义字符的前面插入一个转义字符，所以，当接受到连续的两个转义字符的时候，就去删除其中前面的一个。 </p>
+<p><img src="https://gitee.com/promende/blog_imgs/raw/master/image-20210508220437929.png" alt="image-20210508220437929"></p>
+<p>在接收端进行处理之后可以还原出原始数据。这个过程透明传输的内容是转义字符，用户察觉不到转义字符的存在。</p>
+<h5 id="1-3-差错检测"><a href="#1-3-差错检测" class="headerlink" title="1.3 差错检测"></a>1.3 差错检测</h5><p>在传输过程中可能会产生<strong>比特差错</strong>： 1 可能变成 0 ,  0 可能变成 1  。</p>
+<p>在一段时间内，<strong>传输错误的比特占所传输比特总数的比率称为误码率</strong>（ BER，Bit Error Rate）。</p>
+<p>误码率和信噪比有很大的关系。</p>
+<p>为了保证数据传输的可靠性，在计算机网络传输数据时，必须采用各种差错检測措施。在数据链路层传送的帧中，广泛使用了<strong>循环冗余检验 CRC</strong> 的检错技术。</p>
+<p>传输差错分为两类：</p>
+<ol>
+<li>比特差错。</li>
+<li>收到的帧出现了帧丢失、帧重复和帧失序。（停止等待协议，ARQ）。</li>
+</ol>
+<p>差错控制（比特差错）</p>
+<ul>
+<li>检错编码<ul>
+<li>奇偶校验码</li>
+<li>循环冗余码 CRC</li>
+</ul>
+</li>
+<li>纠错编码<ul>
+<li>海明码</li>
+</ul>
+</li>
+</ul>
+<h6 id="1-3-1-奇偶校验码"><a href="#1-3-1-奇偶校验码" class="headerlink" title="1.3.1 奇偶校验码"></a>1.3.1 奇偶校验码</h6><p>奇偶校验<strong>只能检测出奇数个错误，无法纠错</strong>。</p>
+<p>通过在编码中<strong>增加一位校验位，要么是 0 ，要么是 1 </strong>。来使编码中 1 的个数为奇数或者偶数，校验位可以在原编码的前面或者后面加。通过计算加入校验位后， 1 的个数是奇数还是偶数，可分为两种：</p>
+<ul>
+<li>奇校验：1 的个数为奇数</li>
+<li>偶校验：1 的个数为偶数</li>
+</ul>
+<h6 id="1-3-2-循环冗余码-CRC"><a href="#1-3-2-循环冗余码-CRC" class="headerlink" title="1.3.2 循环冗余码 CRC"></a>1.3.2 循环冗余码 CRC</h6><p>循环冗余码 CRC 由 n 位信息位和 k 位校验位构成。 k 位校验位拼接在 n 位数据位后面， n + k 为循环冗余校验码的字长，又称这个校验码（n + k, n ）码。<br> n 位信息位可以表示成为一个报文多项式 M(x)，最高幂次是 x<sup>n-1</sup> 。约定的生成多项式 G(x) 是一个 k + 1 位的二进制数，最高幂次是 x<sup>k</sup> 。将 M(x) 乘以 x<sup>k</sup> ，即左移 k 位后，除以 G(x) ，得到的 k 位余数就是校验位。这里的除法运算是<strong>模 2 除法</strong>，即当部分余数首位是 1 时商取 1 ，反之商取 0 。然后每一位的减法运算是按位减，不产生借位。</p>
+<h6 id="循环冗余码-CRC-的特点："><a href="#循环冗余码-CRC-的特点：" class="headerlink" title="循环冗余码 CRC 的特点："></a>循环冗余码 CRC 的特点：</h6><ul>
+<li>可检测出所有奇数位错。</li>
+<li>可检测出所有双比特的错。</li>
+<li>可检测出所有小于、等于校验位长度的突发错。</li>
+</ul>
+<h6 id="计算-CRC-："><a href="#计算-CRC-：" class="headerlink" title="计算 CRC ："></a>计算 CRC ：</h6><p>M(x)  代表发送信息的多项式，G(x) 代表校验位信息<br>$$<br>\begin{aligned}<br>M(x)&amp;=x^3+1\hspace{50cm}\<br>&amp;=1x^3+0x^2+0x^1+1X^0\<br>&amp;=1001<br>\end{aligned}<br>$$</p>
+<p>$$<br>\begin{aligned}<br>G(x) &amp;= x^3+x+1\hspace{50cm}\<br>&amp;=1x^3+0x^2+1x^1+1x^0\<br>&amp;=1011<br>\end{aligned}<br>$$</p>
+<p>M(X)加上校验位信息多项式的最高次幂个 0 。<br>$$<br>M(x)=1001000\hspace{100cm}<br>$$<br>M(x) 对 G(x) 做模 2 除法，取得余数。</p>
+<p><img src="https://gitee.com/promende/blog_imgs/raw/master/image-20210508225227226.png" alt="image-20210508225227226"></p>
+<p>余数为 110，即为校验位。故 CRC 码为：1001110</p>
+<h6 id="接收端校验："><a href="#接收端校验：" class="headerlink" title="接收端校验："></a>接收端校验：</h6><p><strong>CRC 码与 G(x)  进行模 2 除法。</strong></p>
+<p>结果为 0 ，则证明正确。</p>
+<h6 id="1-3-3-海明码"><a href="#1-3-3-海明码" class="headerlink" title="1.3.3 海明码"></a>1.3.3 海明码</h6><p>序列<code>1100</code>我们想要让其变成海明码只需如下操作：</p>
+<ol>
+<li><p>算出校验位数 k </p>
+<p>$2^k &gt;= k + 数据位数+1$</p>
+<p>示例：序列 1100 的校验位数为 3 。</p>
+</li>
+<li><p>确定校验位在海明码中的位置</p>
+<p>每一位校验位在 $2^n$ 上。（ n 的取值为 0 ~ n - 1）</p>
+<p>示例：序列 1100 的海明码为 XX1X100 。</p>
+</li>
+<li><p>分组</p>
+<ol>
+<li><p>我们需要确认 H1， H2， H4这三个校验位都来校验哪些位置。<br>我们按这个规则进行分配。</p>
+<p>的二进制码写出来，并且最高位补到3位(前面算的K数)<br>如下所示：</p>
+</li>
+</ol>
+<p>| 1    | 2    | 4    |<br>| —- | —- | —- |<br>| 001  | 010  | 100  |</p>
+<p>然后我们将 0 替换为 * ，作为通配表：</p>
+<p>| 1    | 2    | 4    |<br>| —- | —- | —- |<br>| <strong>1  | *1* | 1</strong>  |</p>
+<p>我们将1到7的二进制序列，列出来如下表：</p>
+<p>| 7    | 6    | 5    | 4    | 3    | 2    | 1    |<br>| —- | —- | —- | —- | —- | —- | —- |<br>| 111  | 110  | 101  | 100  | 011  | 010  | 001  |</p>
+<p>我们将7-&gt;1依次与上面的通配表进行匹配：</p>
+<p>| 1        | 2        | 4        |<br>| ——– | ——– | ——– |<br>| <strong>1      | *1*     | 1</strong>      |<br>| 001（1） | 010（2） | 100（4） |<br>| 011（3） | 011（3） | 101（5） |<br>| 101（5） | 110（6） | 110（6） |<br>| 111（7） | 111（7） | 111（7） |</p>
+<p>因此我们可以确定<br>H1 负责 1 3 5 7 位数的校验<br>H2 负责 2 3 6 7 位数的校验<br>H4 负责 4 5 6 7 位数的校验</p>
+</li>
+<li><p>求出校验位是 0 还是 1<br>$$<br>\begin{aligned}<br>x_1  \bigoplus x_3\bigoplus x_5\bigoplus x_7=0\hspace{50cm}\<br>\end{aligned}<br>$$<br>依此类推：</p>
+<p>H3 ，H5 ，H7中 1 的个数为奇数，因此 H1 = 1。<br>H3 ，H6 ，H7中 1 的个数为偶数，因此 H2 = 0。<br>H5 ，H6 ，H7中 1 的个数为偶数，因此 H4 = 0。</p>
+<p>至此我们得出了完整的海明码：1100001</p>
+</li>
+<li><p>查错</p>
+<p>查错比较简单，如果以下三组<br>既 H1，H3，H5，H7<br>或者 H2，H3，H6，H7<br>或者 H4，H5，H6，H7<br>偶校验出错，则出错。</p>
+<p>比方说如果H1，H3，H5，H7由1100变成了1110（1的个数为偶数）就是出错了。</p>
+</li>
+<li><p>纠错</p>
+<p>假设位置为 1011 的数据传输错误，由0变成了1。</p>
+<p>则校验纠错的过程为：将所有位置形如xxx1, xx1x, x1xx, 1xxx的数据分别异或。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">xxx1: 0^1^0^0^1^1 &#x3D; 1</span><br><span class="line">xx1x: 1^1^1^0^1^1 &#x3D; 1</span><br><span class="line">x1xx: 1^0^1^0 &#x3D; 0</span><br><span class="line">1xxx: 0^1^1^1 &#x3D; 1</span><br></pre></td></tr></table></figure>
+<p>那么出错数据的位置为1011，这样便可得到出错的位置。</p>
+<p>假设同时有两个位置出错，本例中假设位置为 1010 对应数据由 1 变成 0 ，位置为 1011 对应数据由 0 变成 1 ，则推出校验纠错过程：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">xxx1: 0^1^0^0^1^1 &#x3D; 1</span><br><span class="line">xx1x: 1^1^1^0^0^1 &#x3D; 0</span><br><span class="line">x1xx: 1^0^1^0 &#x3D; 0</span><br><span class="line">1xxx: 0^1^0^1 &#x3D; 0</span><br></pre></td></tr></table></figure>
+<p>那么校算出的错误位是 0001 ，即第一位。但实际上是倒数第二位和最后一位都有错误，说明<strong>海明码不能校验两位以上出错的数据，即海明码只能检测并纠正一位错误。</strong></p>
+</li>
+</ol>
+<h3 id="2-信道分类"><a href="#2-信道分类" class="headerlink" title="2 信道分类"></a>2 信道分类</h3><h5 id="2-1-广播信道"><a href="#2-1-广播信道" class="headerlink" title="2.1 广播信道"></a>2.1 广播信道</h5><p>一对多通信，一个节点发送的数据能够被广播信道上所有的节点接收到。</p>
+<p>所有的节点都在同一个广播信道上发送数据，因此需要有专门的控制方法进行协调，避免发生冲突（冲突也叫碰撞）。</p>
+<p>主要有两种控制方法进行协调，一个是使用信道复用技术，一是使用 CSMA/CD 协议。</p>
+<h5 id="2-2-点对点信道"><a href="#2-2-点对点信道" class="headerlink" title="2.2 点对点信道"></a>2.2 点对点信道</h5><p>一对一通信。</p>
+<p>因为不会发生碰撞，因此也比较简单，使用 PPP 协议进行控制。</p>
+<h3 id="3-信道复用技术"><a href="#3-信道复用技术" class="headerlink" title="3 信道复用技术"></a>3 信道复用技术</h3><h5 id="3-1-频分复用（FDM）"><a href="#3-1-频分复用（FDM）" class="headerlink" title="3.1 频分复用（FDM）"></a>3.1 频分复用（FDM）</h5><ul>
+<li>是按频率分割多路信号的方法，即将信道的可用频带分成若干互不交叠的频段，每路信号占据其中的一个频段。</li>
+<li>在接收端用适当的滤波器将多路信号分开，分别进行解调和终端处理。</li>
+</ul>
+<p><strong>当采用频分复用技术时，所有用户在同样的时间占用不同的带宽资源。</strong></p>
+<p><img src="https://gitee.com/promende/blog_imgs/raw/master/20161205173011359" alt="图示"></p>
+<h5 id="3-2-时分复用（TDM）"><a href="#3-2-时分复用（TDM）" class="headerlink" title="3.2 时分复用（TDM）"></a>3.2 时分复用（TDM）</h5><ul>
+<li>TDM 帧：将传输时间划分为多个等长的时间段（ TDM 帧）</li>
+<li>时隙：每个 TDM 帧划分成更小的时间段（时隙），每个用户在每个 TDM 帧中占用固定的时隙进行通信。类似分时 OS 的时间片概念。</li>
+</ul>
+<p>当采用时分复用时，所有用户在不同的时间占用同样的频带宽度（分时不分频）。</p>
+<p><img src="https://gitee.com/promende/blog_imgs/raw/master/20161205173553297" alt="图示"></p>
+<p>使用频分复用和时分复用进行通信，在通信的过程中主机会一直占用一部分信道资源。但是由于计算机数据的突发性质，通信过程没必要一直占用信道资源而不让出给其它用户使用，因此这两种方式对信道的利用率都不高。</p>
+<h5 id="3-3-统计时分复用（STDM，Statistic-TDM）"><a href="#3-3-统计时分复用（STDM，Statistic-TDM）" class="headerlink" title="3.3 统计时分复用（STDM，Statistic TDM）"></a>3.3 统计时分复用（STDM，Statistic TDM）</h5><p>是对时分复用的一种改进，不固定每个用户在时分复用帧中的位置，只要有数据就集中起来组成统计时分复用帧然后发送。</p>
+<p><img src="https://gitee.com/promende/blog_imgs/raw/master/20161205173744517" alt="图示"></p>
+<h5 id="STDM-的特点："><a href="#STDM-的特点：" class="headerlink" title="STDM 的特点："></a>STDM 的特点：</h5><p>连接低速用户，集中数据传输。</p>
+<h5 id="STDM-帧："><a href="#STDM-帧：" class="headerlink" title="STDM 帧："></a>STDM 帧：</h5><ul>
+<li>不等长，时隙数小于所连接的用户数。</li>
+<li>不是固定分配时隙，而是按需分配时隙，可提高线路的利用率。增加地址信息。</li>
+</ul>
+<p>由于 STDM 帧中的时隙不是固定地分配给某个用户，因此在每个时隙中还必须有用户的地址信息，这将产生额外开销。<br><strong>异步时分复用，指统计时分复用。</strong><br><strong>同步时分复用，指普通时分复用。</strong></p>
+<h5 id="3-4-波分复用（WDM）"><a href="#3-4-波分复用（WDM）" class="headerlink" title="3.4 波分复用（WDM）"></a>3.4 波分复用（WDM）</h5><p>光的频分复用。由于光的频率很高，因此习惯上用波长而不是频率来表示所使用的光载波。</p>
+<p><img src="https://gitee.com/promende/blog_imgs/raw/master/20161205174225908" alt="图示"></p>
+<h5 id="3-5-码分复用（CDM，CDMA，Code-Division-Multiple-Access）"><a href="#3-5-码分复用（CDM，CDMA，Code-Division-Multiple-Access）" class="headerlink" title="3.5 码分复用（CDM，CDMA，Code Division Multiple Access）"></a>3.5 码分复用（CDM，CDMA，Code Division Multiple Access）</h5><p>常用的名词是码分多址 CDMA (Code Division Multiple Access)。</p>
+<p>码分复用 CDM（Code Division Multiplexing）是各用户使用经过特殊挑选的不同码型，在同样的时间使用同样的频带进行通信，但彼此不会造成干扰。</p>
+<p>这种系统发送的信号有很强的抗干扰能力，其频谱类似于白噪声，不易被敌人发现。</p>
+<h5 id="CDMA的原理"><a href="#CDMA的原理" class="headerlink" title="CDMA的原理:"></a>CDMA的原理:</h5><p>在CDMA中，每一个比特时间划分为 m 个短的间隔，称为码片（chip）。通常 m 的值是 64 或者 128 。</p>
+<p>每个站被指派一个唯一的 m bit 码片序列（chip sequence） 。</p>
+<ul>
+<li>如发送比特 1，则发送自己的 m bit 码片序列。</li>
+<li>如发送比特 0，则发送该码片序列的二进制反码。</li>
+</ul>
+<p>每一个站分配的码片序列不仅必须各不相同，并且还必须相互正交。</p>
+<h3 id="4-CSMA-CD-协议"><a href="#4-CSMA-CD-协议" class="headerlink" title="4 CSMA/CD 协议"></a>4 CSMA/CD 协议</h3><p>CSMA/CD 表示载波监听多点接入/碰撞检测。</p>
+<ul>
+<li><strong>多点接入</strong> ：说明这是总线型网络，许多主机以多点的方式连接到总线上。</li>
+<li><strong>载波监听</strong> ：每个主机都必须不停地监听信道。在发送前，如果监听到信道正在使用，就必须等待。</li>
+<li><strong>碰撞检测</strong> ：在发送中，如果监听到信道已有其它主机正在发送数据，就表示发生了碰撞。虽然每个主机在发送数据之前都已经监听到信道为空闲，但是由于电磁波的传播时延的存在，还是有可能会发生碰撞。</li>
+</ul>
+<p>记端到端的传播时延为 τ，最先发送的站点最多经过 2τ 就可以知道是否发生了碰撞，称 2τ 为 <strong>争用期</strong> 。只有经过争用期之后还没有检测到碰撞，才能肯定这次发送不会发生碰撞。</p>
+<p>当发生碰撞时，站点要停止发送，等待一段时间再发送。这个时间采用<strong>截断二进制指数退避算法</strong>来确定。从离散的整数集合 {0, 1, .., (2k-1)} 中随机取出一个数，记作 r，然后取 r 倍的争用期作为重传等待时间。</p>
+<p><img src="https://gitee.com/promende/blog_imgs/raw/master/image-20210509210934541.png" alt="image-20210509210934541"></p>
+<h3 id="5-PPP-协议（Point-to-Point-Protocol）"><a href="#5-PPP-协议（Point-to-Point-Protocol）" class="headerlink" title="5 PPP 协议（Point-to-Point Protocol）"></a>5 PPP 协议（Point-to-Point Protocol）</h3><p>PPP（Point-to-Point Protocol），数据链路层协议。PPP 是为在同等单元之间传输数据包这样的简单链路设计的链路层协议。这种链路提供<strong>全双工</strong>操作，并按照<strong>顺序</strong>传递数据包。</p>
+<h5 id="5-1-PPP-协议功能"><a href="#5-1-PPP-协议功能" class="headerlink" title="5.1 PPP 协议功能"></a>5.1 PPP 协议功能</h5><ul>
+<li>IP 地址的动态分配和管理。</li>
+<li>同步或异步的物理层通信。</li>
+<li>链路的配置、质量检测和纠错。</li>
+<li>多种配置参数选项的协商。</li>
+</ul>
+<h5 id="5-2-PPP-协议包括什么协议"><a href="#5-2-PPP-协议包括什么协议" class="headerlink" title="5.2 PPP 协议包括什么协议"></a>5.2 PPP 协议包括什么协议</h5><ul>
+<li>LCP（ Link Control Protocol）</li>
+<li>NCP（ Network Control Protocol）</li>
+<li>PPP的扩展协议（如 Multilink Protocol）</li>
+</ul>
+<h5 id="5-3-PPP-帧的构成"><a href="#5-3-PPP-帧的构成" class="headerlink" title="5.3 PPP 帧的构成"></a>5.3 PPP 帧的构成</h5><p><img src="https://gitee.com/promende/blog_imgs/raw/master/20160405171237406" alt="这里写图片描述"></p>
+<ul>
+<li><strong>Flag：</strong>标志位、用于标识帧的开始和结束</li>
+<li><strong>Addr：</strong>地址位，用于标识Station地址。PPP帧发源自HDLC帧，保留了此字段。对于PPP帧来说，由于是点对点协议，不需要地址位。PPP帧的地址位恒为0xFF。（PPP协议被运用在点对点链路上，不需要知道对端的链路地址，因为点对点链路，如PPPoE帧头中，已经确定了对端的地址）。</li>
+<li><strong>Control：</strong>在DHLC帧中，Control位用来标识帧的顺序和重传行为，但由于该功能在PPP协议中并没有普遍实现，因此PPP帧中，Control值固定为）0x03.</li>
+<li><p><strong>Protocol：</strong>协议字段，标识所携带报文的类型。如0x0021时，表示PPP帧的信息字段是IP数据报文。不同的Protocol标识Data字段的不同含义。</p>
+</li>
+<li><p><strong>Data：</strong> 信息字段，即PPP帧的负载(如LCP帧、NCP帧）.信息域缺省时最大长度不能超过1500字节，其中包括填充域的内容</p>
+</li>
+<li><strong>Pad：</strong>填充字段</li>
+<li><strong>FCS：</strong>循环冗余码。 覆盖了两个Flag（不包括）之间的字段。</li>
+</ul>
+<h3 id="6-MAC-地址"><a href="#6-MAC-地址" class="headerlink" title="6 MAC 地址"></a>6 MAC 地址</h3><p>MAC 地址是数据链路层地址，长度为 6 字节（48 位），用于唯一标识网络适配器（网卡）。</p>
+<p>一台主机拥有多少个网络适配器就有多少个 MAC 地址。例如笔记本电脑普遍存在无线网络适配器和有线网络适配器，因此就有两个 MAC 地址。</p>
+<h3 id="7-局域网"><a href="#7-局域网" class="headerlink" title="7 局域网"></a>7 局域网</h3><p>局域网是一种典型的广播信道，主要特点是网络为一个单位所拥有，且地理范围和站点数目均有限。</p>
+<p>主要有以太网、令牌环网、FDDI 和 ATM 等局域网技术，目前以太网占领着有线局域网市场。</p>
+<p>可以按照网络拓扑结构对局域网进行分类：</p>
+<p><img src="https://gitee.com/promende/blog_imgs/raw/master/image-20210509213049729.png" alt="image-20210509213049729"></p>
+<h3 id="8-以太网"><a href="#8-以太网" class="headerlink" title="8 以太网"></a>8 以太网</h3><p>以太网是一种星型拓扑结构局域网。</p>
+<p>早期使用集线器进行连接，集线器是一种物理层设备， 作用于比特而不是帧，当一个比特到达接口时，集线器重新生成这个比特，并将其能量强度放大，从而扩大网络的传输距离，之后再将这个比特发送到其它所有接口。如果集线器同时收到两个不同接口的帧，那么就发生了碰撞。</p>
+<p>目前以太网使用交换机替代了集线器，交换机是一种链路层设备，它不会发生碰撞，能根据 MAC 地址进行存储转发。</p>
+<p>以太网帧格式：</p>
+<ul>
+<li><strong>类型</strong> ：标记上层使用的协议。</li>
+<li><strong>数据</strong> ：长度在 46-1500 之间，如果太小则需要填充。</li>
+<li><strong>FCS</strong> ：帧检验序列，使用的是 CRC 检验方法。</li>
+</ul>
+<p><img src="https://gitee.com/promende/blog_imgs/raw/master/image-20210509213120186.png" alt="image-20210509213120186"></p>
+<h3 id="9-交换机"><a href="#9-交换机" class="headerlink" title="9 交换机"></a>9 交换机</h3><p><strong>交换机具有自学习能力</strong>，学习的是交换表的内容，交换表中存储着 MAC 地址到接口的映射。</p>
+<p>正是由于这种自学习能力，因此交换机是一种即插即用设备，不需要网络管理员手动配置交换表内容。</p>
+<p>下图中，交换机有 4 个接口，主机 A 向主机 B 发送数据帧时，交换机把主机 A 到接口 1 的映射写入交换表中。为了发送数据帧到 B，先查交换表，此时没有主机 B 的表项，那么主机 A 就发送广播帧，主机 C 和主机 D 会丢弃该帧，主机 B 回应该帧向主机 A 发送数据包时，交换机查找交换表得到主机 A 映射的接口为 1，就发送数据帧到接口 1，同时交换机添加主机 B 到接口 2 的映射。</p>
+<p><img src="https://gitee.com/promende/blog_imgs/raw/master/image-20210509213249906.png" alt="image-20210509213249906"></p>
+<h3 id="10-虚拟局域网"><a href="#10-虚拟局域网" class="headerlink" title="10 虚拟局域网"></a>10 虚拟局域网</h3><p>虚拟局域网可以建立与物理位置无关的逻辑组，只有在同一个虚拟局域网中的成员才会收到链路层广播信息。</p>
+<p>例如下图中 (A1, A2, A3, A4) 属于一个虚拟局域网，A1 发送的广播会被 A2、A3、A4 收到，而其它站点收不到。</p>
+<p>使用 VLAN 干线连接来建立虚拟局域网，每台交换机上的一个特殊接口被设置为干线接口，以互连 VLAN 交换机。IEEE 定义了一种扩展的以太网帧格式 802.1Q，它在标准以太网帧上加进了 4 字节首部 VLAN 标签，用于表示该帧属于哪一个虚拟局域网。</p>
+<p><img src="https://gitee.com/promende/blog_imgs/raw/master/image-20210509213323565.png" alt="image-20210509213323565"></p>
+
+    </article>
+    <!-- license  -->
+    
+        <div class="license-wrapper">
+            <p>原文作者：<a href="http://139.196.79.90">F_JustWei</a>
+            <p>原文链接：<a href="http://139.196.79.90/2021/05/08/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/">http://139.196.79.90/2021/05/08/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/</a>
+            <p>发表日期：<a href="http://139.196.79.90/2021/05/08/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/">May 8th 2021, 5:18:21 pm</a>
+            <p>更新日期：<a href="http://139.196.79.90/2021/05/08/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/">May 19th 2021, 3:06:01 pm</a>
+            <p>版权声明：本文采用<a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+        </div>
+    
+    <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href= "/2021/05/09/5750-%E4%BA%BA%E5%8F%A3%E6%9C%80%E5%A4%9A%E7%9A%84%E5%B9%B4%E4%BB%BD/" title= "5750. 人口最多的年份">
+                    <div class="nextTitle">5750. 人口最多的年份</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2021/05/04/C-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B/" title= "C++ 面向对象高级编程">
+                    <div class="prevTitle">C++ 面向对象高级编程</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+    <div id="lv-container" data-id="city" data-uid= https://livere.com/>
+        <script type="text/javascript">
+            (function (d, s) {
+                var j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') { return; }
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+    </div>
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!-- gitalk评论 -->
+
+    <!-- utteranc评论 -->
+
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:1125664611@qq.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="https://github.com/promende" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+            
+                <span class="iconfont-archer wechat" title=wechat>
+                  
+                  <img class="profile-qr" src="/assets/wechat.jpg" />
+                </span>
+            
+        
+    
+        
+            
+                <span class="iconfont-archer qq" title=qq>
+                  
+                  <img class="profile-qr" src="/assets/qq.png" />
+                </span>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            
+                <a href="https://space.bilibili.com/16113664" class="iconfont-archer bilibili" target="_blank" title=bilibili></a>
+            
+        
+    
+        
+    
+        
+    
+        
+            
+                <a href="https://blog.csdn.net/weixin_43203889?spm=1000.2115.3001.5343" class="iconfont-archer others" target="_blank" title=others></a>
+            
+        
+    
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+    
+     
+    <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span> :)</span>
+    
+    </div>
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82"><span class="toc-number">1.</span> <span class="toc-text">数据链路层</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82%E7%9A%84%E4%B8%89%E4%B8%AA%E5%9F%BA%E6%9C%AC%E9%97%AE%E9%A2%98"><span class="toc-number">1.0.1.</span> <span class="toc-text">1 数据链路层的三个基本问题</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-1-%E5%B0%81%E8%A3%85%E6%88%90%E5%B8%A7"><span class="toc-number">1.0.1.0.1.</span> <span class="toc-text">1.1 封装成帧</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-2-%E9%80%8F%E6%98%8E%E4%BC%A0%E8%BE%93"><span class="toc-number">1.0.1.0.2.</span> <span class="toc-text">1.2 透明传输</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-3-%E5%B7%AE%E9%94%99%E6%A3%80%E6%B5%8B"><span class="toc-number">1.0.1.0.3.</span> <span class="toc-text">1.3 差错检测</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1-3-1-%E5%A5%87%E5%81%B6%E6%A0%A1%E9%AA%8C%E7%A0%81"><span class="toc-number">1.0.1.0.3.1.</span> <span class="toc-text">1.3.1 奇偶校验码</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#1-3-2-%E5%BE%AA%E7%8E%AF%E5%86%97%E4%BD%99%E7%A0%81-CRC"><span class="toc-number">1.0.1.0.3.2.</span> <span class="toc-text">1.3.2 循环冗余码 CRC</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E5%86%97%E4%BD%99%E7%A0%81-CRC-%E7%9A%84%E7%89%B9%E7%82%B9%EF%BC%9A"><span class="toc-number">1.0.1.0.3.3.</span> <span class="toc-text">循环冗余码 CRC 的特点：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97-CRC-%EF%BC%9A"><span class="toc-number">1.0.1.0.3.4.</span> <span class="toc-text">计算 CRC ：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%8E%A5%E6%94%B6%E7%AB%AF%E6%A0%A1%E9%AA%8C%EF%BC%9A"><span class="toc-number">1.0.1.0.3.5.</span> <span class="toc-text">接收端校验：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#1-3-3-%E6%B5%B7%E6%98%8E%E7%A0%81"><span class="toc-number">1.0.1.0.3.6.</span> <span class="toc-text">1.3.3 海明码</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%BF%A1%E9%81%93%E5%88%86%E7%B1%BB"><span class="toc-number">1.0.2.</span> <span class="toc-text">2 信道分类</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-%E5%B9%BF%E6%92%AD%E4%BF%A1%E9%81%93"><span class="toc-number">1.0.2.0.1.</span> <span class="toc-text">2.1 广播信道</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-2-%E7%82%B9%E5%AF%B9%E7%82%B9%E4%BF%A1%E9%81%93"><span class="toc-number">1.0.2.0.2.</span> <span class="toc-text">2.2 点对点信道</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E4%BF%A1%E9%81%93%E5%A4%8D%E7%94%A8%E6%8A%80%E6%9C%AF"><span class="toc-number">1.0.3.</span> <span class="toc-text">3 信道复用技术</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#3-1-%E9%A2%91%E5%88%86%E5%A4%8D%E7%94%A8%EF%BC%88FDM%EF%BC%89"><span class="toc-number">1.0.3.0.1.</span> <span class="toc-text">3.1 频分复用（FDM）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-2-%E6%97%B6%E5%88%86%E5%A4%8D%E7%94%A8%EF%BC%88TDM%EF%BC%89"><span class="toc-number">1.0.3.0.2.</span> <span class="toc-text">3.2 时分复用（TDM）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-3-%E7%BB%9F%E8%AE%A1%E6%97%B6%E5%88%86%E5%A4%8D%E7%94%A8%EF%BC%88STDM%EF%BC%8CStatistic-TDM%EF%BC%89"><span class="toc-number">1.0.3.0.3.</span> <span class="toc-text">3.3 统计时分复用（STDM，Statistic TDM）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#STDM-%E7%9A%84%E7%89%B9%E7%82%B9%EF%BC%9A"><span class="toc-number">1.0.3.0.4.</span> <span class="toc-text">STDM 的特点：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#STDM-%E5%B8%A7%EF%BC%9A"><span class="toc-number">1.0.3.0.5.</span> <span class="toc-text">STDM 帧：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-4-%E6%B3%A2%E5%88%86%E5%A4%8D%E7%94%A8%EF%BC%88WDM%EF%BC%89"><span class="toc-number">1.0.3.0.6.</span> <span class="toc-text">3.4 波分复用（WDM）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-5-%E7%A0%81%E5%88%86%E5%A4%8D%E7%94%A8%EF%BC%88CDM%EF%BC%8CCDMA%EF%BC%8CCode-Division-Multiple-Access%EF%BC%89"><span class="toc-number">1.0.3.0.7.</span> <span class="toc-text">3.5 码分复用（CDM，CDMA，Code Division Multiple Access）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#CDMA%E7%9A%84%E5%8E%9F%E7%90%86"><span class="toc-number">1.0.3.0.8.</span> <span class="toc-text">CDMA的原理:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-CSMA-CD-%E5%8D%8F%E8%AE%AE"><span class="toc-number">1.0.4.</span> <span class="toc-text">4 CSMA&#x2F;CD 协议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-PPP-%E5%8D%8F%E8%AE%AE%EF%BC%88Point-to-Point-Protocol%EF%BC%89"><span class="toc-number">1.0.5.</span> <span class="toc-text">5 PPP 协议（Point-to-Point Protocol）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#5-1-PPP-%E5%8D%8F%E8%AE%AE%E5%8A%9F%E8%83%BD"><span class="toc-number">1.0.5.0.1.</span> <span class="toc-text">5.1 PPP 协议功能</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-2-PPP-%E5%8D%8F%E8%AE%AE%E5%8C%85%E6%8B%AC%E4%BB%80%E4%B9%88%E5%8D%8F%E8%AE%AE"><span class="toc-number">1.0.5.0.2.</span> <span class="toc-text">5.2 PPP 协议包括什么协议</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-3-PPP-%E5%B8%A7%E7%9A%84%E6%9E%84%E6%88%90"><span class="toc-number">1.0.5.0.3.</span> <span class="toc-text">5.3 PPP 帧的构成</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-MAC-%E5%9C%B0%E5%9D%80"><span class="toc-number">1.0.6.</span> <span class="toc-text">6 MAC 地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E5%B1%80%E5%9F%9F%E7%BD%91"><span class="toc-number">1.0.7.</span> <span class="toc-text">7 局域网</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-%E4%BB%A5%E5%A4%AA%E7%BD%91"><span class="toc-number">1.0.8.</span> <span class="toc-text">8 以太网</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-%E4%BA%A4%E6%8D%A2%E6%9C%BA"><span class="toc-number">1.0.9.</span> <span class="toc-text">9 交换机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-%E8%99%9A%E6%8B%9F%E5%B1%80%E5%9F%9F%E7%BD%91"><span class="toc-number">1.0.10.</span> <span class="toc-text">10 虚拟局域网</span></a></li></ol></li></ol></li></ol>
+    </div>
+    
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-panel-archives">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 130
+        </div>
+        <!-- search  -->
+        
+    </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2021 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/14</span><a class="archive-post-title" href= "/2021/06/14/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88%E8%80%83%E8%AF%95%E5%A4%8D%E4%B9%A0/" >软件设计师考试复习</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/13</span><a class="archive-post-title" href= "/2021/06/13/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84-JSON-%E5%BA%93%E6%95%99%E7%A8%8B%EF%BC%88%E4%B8%89%EF%BC%89%EF%BC%9A%E8%A7%A3%E6%9E%90%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%AC%94%E8%AE%B0/" >从零开始的 JSON 库教程（三）：解析字符串笔记</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/10</span><a class="archive-post-title" href= "/2021/06/10/%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92%E5%9F%BA%E7%A1%80%E6%80%BB%E5%A4%8D%E4%B9%A0/" >人机交互基础总复习</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/02</span><a class="archive-post-title" href= "/2021/06/02/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84-JSON-%E5%BA%93%E6%95%99%E7%A8%8B%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E8%A7%A3%E6%9E%90%E6%95%B0%E5%AD%97%E7%AC%94%E8%AE%B0/" >从零开始的 JSON 库教程（二）：解析数字笔记</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/01</span><a class="archive-post-title" href= "/2021/06/01/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84-JSON-%E5%BA%93%E6%95%99%E7%A8%8B%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E5%90%AF%E7%A8%8B%E7%AC%94%E8%AE%B0/" >从零开始的 JSON 库教程（一）：启程笔记</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/31</span><a class="archive-post-title" href= "/2021/05/31/C-algorithm-Other/" >C++ algorithm Other</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/29</span><a class="archive-post-title" href= "/2021/05/29/C-%E9%98%B2%E5%8D%AB%E5%BC%8F%E5%A3%B0%E6%98%8E/" >C++ 防卫式声明</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/29</span><a class="archive-post-title" href= "/2021/05/29/C-%E6%8B%B7%E8%B4%9D%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E3%80%81%E7%A7%BB%E5%8A%A8%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E3%80%81%E6%8B%B7%E8%B4%9D%E8%B5%8B%E5%80%BC%E5%87%BD%E6%95%B0%E3%80%81%E7%A7%BB%E5%8A%A8%E8%B5%8B%E5%80%BC%E5%87%BD%E6%95%B0/" >C++ 拷贝构造函数、移动构造函数、拷贝赋值函数、移动赋值函数</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/24</span><a class="archive-post-title" href= "/2021/05/24/%E5%A4%9A%E5%AA%92%E4%BD%93%E5%9F%BA%E7%A1%80/" >多媒体基础</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/24</span><a class="archive-post-title" href= "/2021/05/24/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E4%B8%8E%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E7%A8%8B%E5%BA%8F%E5%9F%BA%E7%A1%80/" >程序设计语言与语言处理程序基础</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/24</span><a class="archive-post-title" href= "/2021/05/24/%E7%B3%BB%E7%BB%9F%E5%AE%89%E5%85%A8%E5%88%86%E6%9E%90%E4%B8%8E%E8%AE%BE%E8%AE%A1/" >系统安全分析与设计</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2021/05/23/5765-%E8%B7%B3%E8%B7%83%E6%B8%B8%E6%88%8F-VII/" >5765. 跳跃游戏 VII</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2021/05/23/5763-%E5%93%AA%E7%A7%8D%E8%BF%9E%E7%BB%AD%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%9B%B4%E9%95%BF/" >5763. 哪种连续子字符串更长</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2021/05/23/5764-%E5%87%86%E6%97%B6%E5%88%B0%E8%BE%BE%E7%9A%84%E5%88%97%E8%BD%A6%E6%9C%80%E5%B0%8F%E6%97%B6%E9%80%9F/" >5764. 准时到达的列车最小时速</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/22</span><a class="archive-post-title" href= "/2021/05/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" >计算机网络</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/21</span><a class="archive-post-title" href= "/2021/05/21/C-algorithm-Binary-search/" >C++ algorithm Binary search</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/21</span><a class="archive-post-title" href= "/2021/05/21/C-algorithm-Sorting/" >C++ algorithm Sorting</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/21</span><a class="archive-post-title" href= "/2021/05/21/C-tuple/" >C++ tuple</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/21</span><a class="archive-post-title" href= "/2021/05/21/C-initializer-list/" >C++ initializer_list</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/20</span><a class="archive-post-title" href= "/2021/05/20/C-algorithm/" >C++ algorithm</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/19</span><a class="archive-post-title" href= "/2021/05/19/iterator-%E7%9A%84%E4%B8%80%E4%BA%9B%E7%89%B9%E6%AE%8A%E7%94%A8%E6%B3%95/" >iterator 的一些特殊用法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/19</span><a class="archive-post-title" href= "/2021/05/19/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/" >数据库系统</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/19</span><a class="archive-post-title" href= "/2021/05/19/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/" >操作系统基本原理</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/19</span><a class="archive-post-title" href= "/2021/05/19/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E4%B8%8E%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/" >计算机组成与体系结构</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/19</span><a class="archive-post-title" href= "/2021/05/19/list-%E4%B8%8E-forward-list-%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E7%89%B9%E6%AE%8A%E6%96%B9%E6%B3%95/" >list 与 forward_list 中的一些特殊方法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/19</span><a class="archive-post-title" href= "/2021/05/19/%E5%BA%8F%E5%88%97%E5%AE%B9%E5%99%A8%E4%B8%AD%E7%9A%84-erase-%E6%96%B9%E6%B3%95/" >序列容器中的 erase 方法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/19</span><a class="archive-post-title" href= "/2021/05/19/%E5%BA%8F%E5%88%97%E5%AE%B9%E5%99%A8%E4%B8%AD%E7%9A%84-assign-%E6%96%B9%E6%B3%95/" >序列容器中的 assign 方法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/18</span><a class="archive-post-title" href= "/2021/05/18/%E5%BA%8F%E5%88%97%E5%AE%B9%E5%99%A8%E4%B8%AD%E7%9A%84%20insert%20%E6%96%B9%E6%B3%95/" >序列容器中的 insert 方法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/16</span><a class="archive-post-title" href= "/2021/05/16/%E8%80%A6%E5%90%88%E4%B8%8E%E5%86%85%E8%81%9A%E7%9A%84%E5%88%86%E7%B1%BB/" >耦合与内聚的分类</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/16</span><a class="archive-post-title" href= "/2021/05/16/5762-%E6%81%B0%E6%9C%89-K-%E6%A0%B9%E6%9C%A8%E6%A3%8D%E5%8F%AF%E4%BB%A5%E7%9C%8B%E5%88%B0%E7%9A%84%E6%8E%92%E5%88%97%E6%95%B0%E7%9B%AE/" >5762. 恰有 K 根木棍可以看到的排列数目</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/16</span><a class="archive-post-title" href= "/2021/05/16/%E5%AE%89%E5%85%A8%E6%94%BB%E5%87%BB/" >安全攻击</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/16</span><a class="archive-post-title" href= "/2021/05/16/5760-%E6%9E%84%E6%88%90%E4%BA%A4%E6%9B%BF%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%9C%80%E8%A6%81%E7%9A%84%E6%9C%80%E5%B0%8F%E4%BA%A4%E6%8D%A2%E6%AC%A1%E6%95%B0/" >5760. 构成交替字符串需要的最小交换次数</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/16</span><a class="archive-post-title" href= "/2021/05/16/5761-%E6%89%BE%E5%87%BA%E5%92%8C%E4%B8%BA%E6%8C%87%E5%AE%9A%E5%80%BC%E7%9A%84%E4%B8%8B%E6%A0%87%E5%AF%B9/" >5761. 找出和为指定值的下标对</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/16</span><a class="archive-post-title" href= "/2021/05/16/5212-%E5%90%91%E4%B8%8B%E5%8F%96%E6%95%B4%E6%95%B0%E5%AF%B9%E5%92%8C/" >5212. 向下取整数对和</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/16</span><a class="archive-post-title" href= "/2021/05/16/5759-%E6%89%BE%E5%87%BA%E6%89%80%E6%9C%89%E5%AD%90%E9%9B%86%E7%9A%84%E5%BC%82%E6%88%96%E6%80%BB%E5%92%8C%E5%86%8D%E6%B1%82%E5%92%8C/" >5759. 找出所有子集的异或总和再求和</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/16</span><a class="archive-post-title" href= "/2021/05/16/5744-%E6%97%8B%E8%BD%AC%E7%9B%92%E5%AD%90/" >5744. 旋转盒子</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/16</span><a class="archive-post-title" href= "/2021/05/16/5742-%E5%B0%86%E5%8F%A5%E5%AD%90%E6%8E%92%E5%BA%8F/" >5742. 将句子排序</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/16</span><a class="archive-post-title" href= "/2021/05/16/5743-%E5%A2%9E%E9%95%BF%E7%9A%84%E5%86%85%E5%AD%98%E6%B3%84%E9%9C%B2/" >5743. 增长的内存泄露</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/15</span><a class="archive-post-title" href= "/2021/05/15/C-%E5%AE%B9%E5%99%A8-list/" >C++容器 list</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/15</span><a class="archive-post-title" href= "/2021/05/15/vector%E4%B8%ADresize%E4%B8%8Ereserve%E7%9A%84%E5%8C%BA%E5%88%AB/" >vector中resize与reserve的区别</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/15</span><a class="archive-post-title" href= "/2021/05/15/C-%E5%AE%B9%E5%99%A8-vector/" >C++容器 vector</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/15</span><a class="archive-post-title" href= "/2021/05/15/C-%E5%AE%B9%E5%99%A8-array/" >C++容器 array</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/15</span><a class="archive-post-title" href= "/2021/05/15/iterator-%E5%92%8C-const-iterator/" >iterator 与 const_iterator</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/13</span><a class="archive-post-title" href= "/2021/05/13/1269-%E5%81%9C%E5%9C%A8%E5%8E%9F%E5%9C%B0%E7%9A%84%E6%96%B9%E6%A1%88%E6%95%B0/" >1269. 停在原地的方案数</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/09</span><a class="archive-post-title" href= "/2021/05/09/C-%E6%A0%87%E5%87%86%E5%BA%93-STL-%E4%B8%8E%E6%B3%9B%E5%9E%8B%E7%BC%96%E7%A8%8B/" >C++标准库(STL)与泛型编程</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/09</span><a class="archive-post-title" href= "/2021/05/09/5751-%E4%B8%8B%E6%A0%87%E5%AF%B9%E4%B8%AD%E7%9A%84%E6%9C%80%E5%A4%A7%E8%B7%9D%E7%A6%BB/" >5751. 下标对中的最大距离</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/09</span><a class="archive-post-title" href= "/2021/05/09/5752-%E5%AD%90%E6%95%B0%E7%BB%84%E6%9C%80%E5%B0%8F%E4%B9%98%E7%A7%AF%E7%9A%84%E6%9C%80%E5%A4%A7%E5%80%BC/" >5752. 子数组最小乘积的最大值</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/09</span><a class="archive-post-title" href= "/2021/05/09/5750-%E4%BA%BA%E5%8F%A3%E6%9C%80%E5%A4%9A%E7%9A%84%E5%B9%B4%E4%BB%BD/" >5750. 人口最多的年份</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/08</span><a class="archive-post-title" href= "/2021/05/08/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/" >数据链路层</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/04</span><a class="archive-post-title" href= "/2021/05/04/C-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B/" >C++ 面向对象高级编程</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/04</span><a class="archive-post-title" href= "/2021/05/04/%E7%94%B5%E8%B7%AF%E4%BA%A4%E6%8D%A2%E3%80%81%E6%8A%A5%E6%96%87%E4%BA%A4%E6%8D%A2%E4%B8%8E%E5%88%86%E7%BB%84%E4%BA%A4%E6%8D%A2/" >电路交换、报文交换与分组交换</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/02</span><a class="archive-post-title" href= "/2021/05/02/%E9%93%BE%E6%8E%A5/" >链接</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/02</span><a class="archive-post-title" href= "/2021/05/02/5733-%E6%9C%80%E8%BF%91%E7%9A%84%E6%88%BF%E9%97%B4/" >5733. 最近的房间</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/02</span><a class="archive-post-title" href= "/2021/05/02/5730-%E5%B0%86%E6%89%80%E6%9C%89%E6%95%B0%E5%AD%97%E7%94%A8%E5%AD%97%E7%AC%A6%E6%9B%BF%E6%8D%A2/" >5730. 将所有数字用字符替换</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/02</span><a class="archive-post-title" href= "/2021/05/02/5732-%E5%87%8F%E5%B0%8F%E5%92%8C%E9%87%8D%E6%96%B0%E6%8E%92%E5%88%97%E6%95%B0%E7%BB%84%E5%90%8E%E7%9A%84%E6%9C%80%E5%A4%A7%E5%85%83%E7%B4%A0/" >5732. 减小和重新排列数组后的最大元素</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/02</span><a class="archive-post-title" href= "/2021/05/02/5731-%E5%BA%A7%E4%BD%8D%E9%A2%84%E7%BA%A6%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/" >5731. 座位预约管理系统</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/01</span><a class="archive-post-title" href= "/2021/05/01/%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86/" >设备管理</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/01</span><a class="archive-post-title" href= "/2021/05/01/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/" >内存管理</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/30</span><a class="archive-post-title" href= "/2021/04/30/%E6%AD%BB%E9%94%81/" >死锁</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/28</span><a class="archive-post-title" href= "/2021/04/28/Cache%E4%B8%8E%E4%B8%BB%E5%AD%98%E7%9A%84%E5%9C%B0%E5%9D%80%E6%98%A0%E5%83%8F/" >Cache与主存的地址映像</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/28</span><a class="archive-post-title" href= "/2021/04/28/%E8%BF%9B%E7%A8%8B%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95/" >进程调度算法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/28</span><a class="archive-post-title" href= "/2021/04/28/%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/" >进程与线程</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/28</span><a class="archive-post-title" href= "/2021/04/28/L2-038-%E7%97%85%E6%AF%92%E6%BA%AF%E6%BA%90/" >L2-038 病毒溯源</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/28</span><a class="archive-post-title" href= "/2021/04/28/L2-037-%E5%8C%85%E8%A3%85%E6%9C%BA/" >L2-037 包装机</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/28</span><a class="archive-post-title" href= "/2021/04/28/L2-039-%E6%B8%85%E7%82%B9%E4%BB%A3%E7%A0%81%E5%BA%93/" >L2-039 清点代码库</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/28</span><a class="archive-post-title" href= "/2021/04/28/L1-077-%E5%A4%A7%E7%AC%A8%E9%92%9F%E7%9A%84%E5%BF%83%E6%83%85/" >L1-077 大笨钟的心情</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/28</span><a class="archive-post-title" href= "/2021/04/28/L2-040-%E5%93%B2%E5%93%B2%E6%89%93%E6%B8%B8%E6%88%8F/" >L2-040 哲哲打游戏</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/27</span><a class="archive-post-title" href= "/2021/04/27/L1-078-%E5%90%89%E8%80%81%E5%B8%88%E7%9A%84%E5%9B%9E%E5%BD%92/" >L1-078 吉老师的回归</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/27</span><a class="archive-post-title" href= "/2021/04/27/L1-079-%E5%A4%A9%E6%A2%AF%E8%B5%9B%E7%9A%84%E5%96%84%E8%89%AF/" >L1-079 天梯赛的善良</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/27</span><a class="archive-post-title" href= "/2021/04/27/L1-080-%E4%B9%98%E6%B3%95%E5%8F%A3%E8%AF%80%E6%95%B0%E5%88%97/" >L1-080 乘法口诀数列</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/27</span><a class="archive-post-title" href= "/2021/04/27/%E5%AE%8F%E5%86%85%E6%A0%B8%E5%92%8C%E5%BE%AE%E5%86%85%E6%A0%B8/" >宏内核和微内核</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/27</span><a class="archive-post-title" href= "/2021/04/27/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%89%B9%E5%BE%81/" >操作系统的基本特征</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/26</span><a class="archive-post-title" href= "/2021/04/26/%E5%93%88%E5%A4%AB%E6%9B%BC%E7%BC%96%E7%A0%81/" >哈夫曼编码</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/26</span><a class="archive-post-title" href= "/2021/04/26/Demilitarized-Zone/" >Demilitarized Zone</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/26</span><a class="archive-post-title" href= "/2021/04/26/UML-%E5%9B%9B%E7%A7%8D%E4%BA%8B%E7%89%A9/" >UML-四种事物</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/26</span><a class="archive-post-title" href= "/2021/04/26/%E6%84%9F%E8%A7%89%E5%AA%92%E4%BD%93%E3%80%81%E8%A1%A8%E7%A4%BA%E5%AA%92%E4%BD%93%E3%80%81%E8%A1%A8%E7%8E%B0%E5%AA%92%E4%BD%93%E3%80%81%E5%AD%98%E5%82%A8%E5%AA%92%E4%BD%93%E5%92%8C%E4%BC%A0%E8%BE%93%E5%AA%92%E4%BD%93%20/" >感觉媒体、表示媒体、表现媒体、存储媒体和传输媒体</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/26</span><a class="archive-post-title" href= "/2021/04/26/Flynn%E5%88%86%E7%B1%BB%E6%B3%95/" >Flynn分类法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/26</span><a class="archive-post-title" href= "/2021/04/26/UML-%E6%97%B6%E5%BA%8F%E5%9B%BE/" >UML-时序图</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/26</span><a class="archive-post-title" href= "/2021/04/26/UML-%E7%B1%BB%E5%9B%BE/" >UML-时序图</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/24</span><a class="archive-post-title" href= "/2021/04/24/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%80%9D%E6%83%B3/" >有关面向对象的一些总结</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/23</span><a class="archive-post-title" href= "/2021/04/23/%E5%B9%B6%E6%9F%A5%E9%9B%86/" >并查集</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/23</span><a class="archive-post-title" href= "/2021/04/23/L2-029-%E7%89%B9%E7%AB%8B%E7%8B%AC%E8%A1%8C%E7%9A%84%E5%B9%B8%E7%A6%8F/" >L2-029 特立独行的幸福</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/22</span><a class="archive-post-title" href= "/2021/04/22/C++%20map/" >C++ map</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/22</span><a class="archive-post-title" href= "/2021/04/22/C++%20unordered_map/" >C++ unordered_map</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/22</span><a class="archive-post-title" href= "/2021/04/22/L2-019%20%E6%82%84%E6%82%84%E5%85%B3%E6%B3%A8/" >L2-019 悄悄关注</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/21</span><a class="archive-post-title" href= "/2021/04/21/%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2/" >最长回文子串</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/21</span><a class="archive-post-title" href= "/2021/04/21/L2-020%20%E5%8A%9F%E5%A4%AB%E4%BC%A0%E4%BA%BA/" >L2-020 功夫传人</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/21</span><a class="archive-post-title" href= "/2021/04/21/L2-021%20%E7%82%B9%E8%B5%9E%E7%8B%82%E9%AD%94/" >L2-021 点赞狂魔</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/21</span><a class="archive-post-title" href= "/2021/04/21/L2-022-%E9%87%8D%E6%8E%92%E9%93%BE%E8%A1%A8/" >L2-022 重排链表</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/21</span><a class="archive-post-title" href= "/2021/04/21/L2-026-%E5%B0%8F%E5%AD%97%E8%BE%88/" >L2-026 小字辈</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/21</span><a class="archive-post-title" href= "/2021/04/21/L2-036-%E7%BD%91%E7%BA%A2%E7%82%B9%E6%89%93%E5%8D%A1%E6%94%BB%E7%95%A5/" >L2-036 网红点打卡攻略</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/21</span><a class="archive-post-title" href= "/2021/04/21/Cloneable%E6%8E%A5%E5%8F%A3/" >Cloneable接口</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/21</span><a class="archive-post-title" href= "/2021/04/21/IOC/" >IOC与DI</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/21</span><a class="archive-post-title" href= "/2021/04/21/CISC%E5%92%8CRISC/" >CISC和RISC</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/19</span><a class="archive-post-title" href= "/2021/04/19/32.%20%E6%9C%80%E9%95%BF%E6%9C%89%E6%95%88%E6%8B%AC%E5%8F%B7/" >32. 最长有效括号</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/18</span><a class="archive-post-title" href= "/2021/04/18/%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F%E5%92%8C%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E7%9A%84%E5%8C%BA%E5%88%AB/" >全局变量和局部变量的区别</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/18</span><a class="archive-post-title" href= "/2021/04/18/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E7%B4%A2%E5%BC%95%E6%9C%89%E5%93%AA%E4%BA%9B%E5%88%86%E7%B1%BB%E8%81%9A%E7%B0%87%E7%B4%A2%E5%BC%95%E5%92%8C%E9%9D%9E%E8%81%9A%E7%B0%87%E7%B4%A2%E5%BC%95%E7%9A%84%E5%8C%BA%E5%88%AB/" >索引</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/18</span><a class="archive-post-title" href= "/2021/04/18/%E6%9C%80%E5%B0%91%E6%93%8D%E4%BD%9C%E4%BD%BF%E6%95%B0%E7%BB%84%E9%80%92%E5%A2%9E/" >最少操作使数组递增</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/18</span><a class="archive-post-title" href= "/2021/04/18/%E6%AF%8F%E4%B8%AA%E6%9F%A5%E8%AF%A2%E7%9A%84%E6%9C%80%E5%A4%A7%E5%BC%82%E6%88%96%E5%80%BC/" >每个查询的最大异或值</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/18</span><a class="archive-post-title" href= "/2021/04/18/%E7%BB%9F%E8%AE%A1%E4%B8%80%E4%B8%AA%E5%9C%86%E4%B8%AD%E7%82%B9%E7%9A%84%E6%95%B0%E7%9B%AE/" >统计一个圆中点的数目</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/18</span><a class="archive-post-title" href= "/2021/04/18/%E8%BF%9B%E7%A8%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F/" >进程间的通信方式</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/18</span><a class="archive-post-title" href= "/2021/04/18/%E7%9F%A5%E8%AF%86%E4%BA%A7%E6%9D%83%E4%BF%9D%E6%8A%A4/" >知识产权保护</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/14</span><a class="archive-post-title" href= "/2021/04/14/B+%E6%A0%91/" >B+树</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/14</span><a class="archive-post-title" href= "/2021/04/14/B%E6%A0%91/" >B树</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/14</span><a class="archive-post-title" href= "/2021/04/14/C++%20priority_queue/" >C++ priority_queue</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/14</span><a class="archive-post-title" href= "/2021/04/14/C++%20regex/" >C++ regex</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/14</span><a class="archive-post-title" href= "/2021/04/14/C++%20set/" >C++ set</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/14</span><a class="archive-post-title" href= "/2021/04/14/C++%20%E5%8F%96%E6%95%B4/" >C++ 取整</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/14</span><a class="archive-post-title" href= "/2021/04/14/KMP/" >KMP模板</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/14</span><a class="archive-post-title" href= "/2021/04/14/%E5%A0%86%E4%B8%8E%E6%A0%88/" >堆与栈</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/14</span><a class="archive-post-title" href= "/2021/04/14/%E7%BA%A2%E9%BB%91%E6%A0%91/" >字符串相乘</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/07</span><a class="archive-post-title" href= "/2021/04/07/%E5%89%8D%E8%B6%8B%E5%9B%BE/" >前趋图</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/07</span><a class="archive-post-title" href= "/2021/04/07/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/" >平衡二叉树</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/07</span><a class="archive-post-title" href= "/2021/04/07/%E6%9C%89%E9%99%90%E8%87%AA%E5%8A%A8%E6%9C%BA/" >有限自动机</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/07</span><a class="archive-post-title" href= "/2021/04/07/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" >排序算法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/07</span><a class="archive-post-title" href= "/2021/04/07/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88%E7%AC%94%E8%AE%B0/" >软件设计师笔记</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/05</span><a class="archive-post-title" href= "/2021/04/05/C++%20stack/" >C++ stack</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/05</span><a class="archive-post-title" href= "/2021/04/05/McCabe%E5%BA%A6%E9%87%8F%E6%B3%95/" >McCabe度量法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/05</span><a class="archive-post-title" href= "/2021/04/05/NULL%E4%B8%8Enullptr/" >NULL与nullptr</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/05</span><a class="archive-post-title" href= "/2021/04/05/TCP%E7%9A%84%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%92%8C%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/" >TCP的三次握手和四次挥手</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/05</span><a class="archive-post-title" href= "/2021/04/05/TCP/" >TCP与UDP</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/05</span><a class="archive-post-title" href= "/2021/04/05/Trie%E6%A0%91/" >Trie树</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/05</span><a class="archive-post-title" href= "/2021/04/05/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/" >二叉树的遍历</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/05</span><a class="archive-post-title" href= "/2021/04/05/%E4%BC%A0%E5%80%BC%E3%80%81%E4%BC%A0%E5%BC%95%E7%94%A8%E8%B0%83%E7%94%A8%E5%87%BD%E6%95%B0/" >传值、传引用调用函数</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/05</span><a class="archive-post-title" href= "/2021/04/05/%E5%8D%8A%E5%8F%8C%E5%B7%A5%E4%B8%8E%E5%85%A8%E5%8F%8C%E5%B7%A5/" >单工、半双工与全双工</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/05</span><a class="archive-post-title" href= "/2021/04/05/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8A%9F%E8%83%BD/" >操作系统的功能</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/26</span><a class="archive-post-title" href= "/2019/04/26/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" >git基本使用方法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/21</span><a class="archive-post-title" href= "/2019/02/21/Book-finder/" >Book finder</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/21</span><a class="archive-post-title" href= "/2019/02/21/Crawl-all-the-books-corresponding-to-the-label/" >Crawl all the books corresponding to the label</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/21</span><a class="archive-post-title" href= "/2019/02/21/The-new-york-times-bestseller/" >The new york times bestseller</a>
+        </li>
+    
+    </div>
+  </div>
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="leetcode"><span class="iconfont-archer">&#xe606;</span>leetcode</span>
+    
+        <span class="sidebar-tag-name" data-tags="动态规划"><span class="iconfont-archer">&#xe606;</span>动态规划</span>
+    
+        <span class="sidebar-tag-name" data-tags="字符串"><span class="iconfont-archer">&#xe606;</span>字符串</span>
+    
+        <span class="sidebar-tag-name" data-tags="树"><span class="iconfont-archer">&#xe606;</span>树</span>
+    
+        <span class="sidebar-tag-name" data-tags="数据结构"><span class="iconfont-archer">&#xe606;</span>数据结构</span>
+    
+        <span class="sidebar-tag-name" data-tags="C++"><span class="iconfont-archer">&#xe606;</span>C++</span>
+    
+        <span class="sidebar-tag-name" data-tags="STL"><span class="iconfont-archer">&#xe606;</span>STL</span>
+    
+        <span class="sidebar-tag-name" data-tags="algorithm"><span class="iconfont-archer">&#xe606;</span>algorithm</span>
+    
+        <span class="sidebar-tag-name" data-tags="容器"><span class="iconfont-archer">&#xe606;</span>容器</span>
+    
+        <span class="sidebar-tag-name" data-tags="操作系统"><span class="iconfont-archer">&#xe606;</span>操作系统</span>
+    
+        <span class="sidebar-tag-name" data-tags="软考"><span class="iconfont-archer">&#xe606;</span>软考</span>
+    
+        <span class="sidebar-tag-name" data-tags="Java"><span class="iconfont-archer">&#xe606;</span>Java</span>
+    
+        <span class="sidebar-tag-name" data-tags="PTA"><span class="iconfont-archer">&#xe606;</span>PTA</span>
+    
+        <span class="sidebar-tag-name" data-tags="计算机网络"><span class="iconfont-archer">&#xe606;</span>计算机网络</span>
+    
+        <span class="sidebar-tag-name" data-tags="UML"><span class="iconfont-archer">&#xe606;</span>UML</span>
+    
+        <span class="sidebar-tag-name" data-tags="迭代器"><span class="iconfont-archer">&#xe606;</span>迭代器</span>
+    
+        <span class="sidebar-tag-name" data-tags="C"><span class="iconfont-archer">&#xe606;</span>C</span>
+    
+        <span class="sidebar-tag-name" data-tags="JSON"><span class="iconfont-archer">&#xe606;</span>JSON</span>
+    
+        <span class="sidebar-tag-name" data-tags="信息安全"><span class="iconfont-archer">&#xe606;</span>信息安全</span>
+    
+        <span class="sidebar-tag-name" data-tags="模板"><span class="iconfont-archer">&#xe606;</span>模板</span>
+    
+        <span class="sidebar-tag-name" data-tags="多媒体， 软考"><span class="iconfont-archer">&#xe606;</span>多媒体， 软考</span>
+    
+        <span class="sidebar-tag-name" data-tags="数据库"><span class="iconfont-archer">&#xe606;</span>数据库</span>
+    
+        <span class="sidebar-tag-name" data-tags="软件工程"><span class="iconfont-archer">&#xe606;</span>软件工程</span>
+    
+        <span class="sidebar-tag-name" data-tags="排序"><span class="iconfont-archer">&#xe606;</span>排序</span>
+    
+        <span class="sidebar-tag-name" data-tags="Spring"><span class="iconfont-archer">&#xe606;</span>Spring</span>
+    
+        <span class="sidebar-tag-name" data-tags="人机交互"><span class="iconfont-archer">&#xe606;</span>人机交互</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: true
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: "/",
+        author: "F_JustWei"
+    }
+</script>
+    <!-- CDN failover -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ === 'undefined')
+        {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js">\x3C/script>')
+        }
+    </script>
+    <script src="/scripts/main.js"></script>
+    <!-- algolia -->
+    
+    <!-- busuanzi  -->
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
+     
+    </body>
+</html>
+
+
